@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Mudassir Raza — Senior Data Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b14; --bg-2:#0b1120; --panel:rgba(15,23,42,.78); --panel-solid:#0f172a;
+  --panel-2:#111c30; --line:rgba(148,163,184,.14); --line-strong:rgba(79,209,197,.32);
+  --text:#f8fafc; --muted:#94a3b8; --muted-2:#64748b; --teal:#4fd1c5; --violet:#8b5cf6;
+  --blue:#60a5fa; --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  margin:0; min-height:100%; overflow-x:hidden; color:var(--text);
+  font-family:'Inter',sans-serif; line-height:1.65;
+  background:
+    radial-gradient(900px circle at 10% -10%,rgba(79,209,197,.12),transparent 55%),
+    radial-gradient(800px circle at 100% 10%,rgba(139,92,246,.13),transparent 52%),
+    linear-gradient(180deg,var(--bg),var(--bg-2));
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 85%);
+}
+.topnav{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  max-width:100%;padding:15px 5vw;background:rgba(7,11,20,.72);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.08em;color:var(--text)}
+.brand span{color:var(--teal)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:600;transition:.2s}
+.nav-links a:hover{color:var(--teal)}
+.wrap{max-width:var(--max);margin:0 auto;padding:78px 28px 110px;position:relative;z-index:1}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;margin:0}
+.hero{
+  position:relative;display:grid;grid-template-columns:150px 1fr;gap:34px;align-items:center;
+  padding:42px;border:1px solid var(--line);border-radius:28px;
+  background:linear-gradient(135deg,rgba(15,23,42,.9),rgba(15,23,42,.58));
+  box-shadow:0 30px 90px rgba(0,0,0,.28);overflow:hidden;margin-bottom:72px;
+}
+.hero:after{content:"";position:absolute;width:260px;height:260px;right:-110px;top:-110px;border-radius:50%;background:rgba(79,209,197,.09);filter:blur(8px)}
+.avatar{
+  width:150px;height:150px;border-radius:28px;object-fit:cover;flex-shrink:0;
+  border:1px solid rgba(79,209,197,.55);box-shadow:0 0 0 8px rgba(79,209,197,.05),0 20px 50px rgba(0,0,0,.3)
+}
+.hero-text{min-width:0;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.eyebrow:before{content:"";width:24px;height:1px;background:var(--teal)}
+h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.045em}
+.hero-title{margin-top:12px;font-size:clamp(1.05rem,2vw,1.35rem);font-weight:700;color:var(--teal)}
+.hero-text p{color:var(--muted);max-width:72ch;font-size:1rem;margin:16px 0 0}
+.tag-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+.tag,.stack span{
+  border:1px solid var(--line);background:rgba(17,28,48,.72);color:#cbd5e1;
+  font-size:.78rem;padding:6px 11px;border-radius:999px;font-weight:600
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;text-decoration:none;font-size:.86rem;font-weight:700;border:1px solid var(--line);transition:.2s}
+.btn.primary{background:var(--teal);color:#061016;border-color:var(--teal)}
+.btn.secondary{color:#dbeafe;background:rgba(255,255,255,.025)}
+.btn:hover{transform:translateY(-2px);border-color:var(--line-strong)}
+.section-intro{margin:0 0 24px}
+.section-kicker{color:var(--teal);font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.section-title{font-size:2rem;letter-spacing:-.025em;margin-top:5px}
+.section-copy{color:var(--muted);margin:7px 0 0;max-width:70ch}
+section.project{
+  background:linear-gradient(145deg,rgba(15,23,42,.92),rgba(11,17,32,.84));
+  border:1px solid var(--line);border-radius:20px;padding:30px;margin-bottom:22px;
+  box-shadow:0 12px 40px rgba(0,0,0,.12);transition:transform .25s,border-color .25s,box-shadow .25s
+}
+section.project:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 22px 55px rgba(0,0,0,.25)}
+.project h2{font-size:1.35rem;letter-spacing:-.015em;margin-bottom:5px}
+.project .role{color:#a78bfa;font-size:.84rem;font-weight:700;margin-bottom:14px}
+.project p.summary{color:#cbd5e1;max-width:82ch;margin:0}
+.stack{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 22px}
+.diagram-wrap{background:#080e1b;border:1px solid var(--line);border-radius:14px;padding:16px;overflow-x:auto;margin-bottom:18px}
+.diagram-wrap svg{display:block;min-width:640px;width:100%;height:auto}
+.links a{color:var(--teal);text-decoration:none;font-size:.86rem;font-weight:600;margin-right:18px}
+.links a:hover{text-decoration:underline}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.skills-grid>div{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(17,28,48,.52)}
+.skills-grid h4{font-size:.82rem;color:var(--teal);font-weight:800;margin-bottom:5px}
+.skills-grid p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55}
+.cert-list{list-style:none;padding:0;margin:8px 0 0;color:var(--text);font-size:.9rem}
+.cert-list li{padding:11px 0;border-bottom:1px solid var(--line)}
+.cert-list li:last-child{border-bottom:none}
+.filter-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.chip{background:rgba(17,28,48,.8);border:1px solid var(--line);color:var(--muted);font-size:.82rem;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;transition:.2s}
+.chip:hover{border-color:var(--teal);color:var(--text)}
+.chip.active{background:var(--teal);color:#071018;border-color:var(--teal)}
+.more{border:1px dashed var(--line-strong);border-radius:16px;padding:24px;color:var(--muted);font-size:.9rem;text-align:center}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media(max-width:760px){
+  .topnav{padding:13px 18px}.nav-links{gap:14px}.nav-links a{font-size:.78rem}
+  .wrap{padding:45px 16px 75px}.hero{grid-template-columns:1fr;padding:28px;gap:22px}.avatar{width:110px;height:110px;border-radius:22px}
+  h1{font-size:2.65rem}.skills-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .nav-links a:nth-child(3){display:none}.hero{border-radius:20px}h1{font-size:2.2rem}
+  section.project{padding:22px}.skills-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<nav class="topnav">
+  <span class="brand">Muhammad Mudassir Raza</span>
+  <div class="nav-links">
+    <a href="#skills-sec">Skills</a>
+    <a href="#projects-top">Projects</a>
+    <a href="#certs-sec">Certifications</a>
+  </div>
+</nav>
+<div class="wrap">
+
+  <header class="hero reveal in">
+    <img class="avatar" src="data:image/jpeg;base64,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" alt="Muhammad Mudassir Raza">
+    <div class="hero-text">
+      
+      <h1>Muhammad Mudassir Raza</h1>
+      <div class="hero-title">Senior Data Engineer</div>
+      <p>Designing reliable data platforms, production ETL/ELT pipelines, cloud-native systems, and AI-powered workflows across AWS, GCP, and Azure.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/muhammadmudassirraza/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn secondary" href="https://github.com/MuhammadMudassirRaza12345" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <div class="tag-row">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">ETL / ELT</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Azure</span>
+        <span class="tag">GCP</span>
+        <span class="tag">LLM / RAG</span>
+        <span class="tag">Snowflake</span>
+        <span class="tag">AI / LLM Automation</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-intro">
+    <div class="section-kicker">Core capabilities</div>
+    <h2 class="section-title">Engineering that moves data into action.</h2>
+    <p class="section-copy">A practical mix of data engineering, cloud infrastructure, automation, and AI application development.</p>
+  </section>
+  <section class="project reveal" id="skills-sec">
+    <h2>🛠 Skills</h2>
+    <div class="skills-grid">
+      <div><h4>Languages &amp; Backend</h4><p>Python, SQL, Flask, FastAPI, Django</p></div>
+      <div><h4>Data Engineering</h4><p>ETL/ELT pipelines, data warehousing, data modeling, SCD2</p></div>
+      <div><h4>Big Data &amp; Streaming</h4><p>Apache Spark (PySpark, SparkSQL), Kafka (batch &amp; streaming)</p></div>
+      <div><h4>Orchestration</h4><p>Apache Airflow, Cloud Scheduler, Cron</p></div>
+      <div><h4>Cloud — AWS</h4><p>S3, Glue, EC2, Lambda, Athena, IAM, DataBrew, QuickSight</p></div>
+      <div><h4>Cloud — GCP</h4><p>BigQuery, Cloud Functions, Cloud Storage, Vertex AI, Compute Engine, Looker Studio</p></div>
+      <div><h4>Cloud — Azure</h4><p>Azure Functions, Logic Apps</p></div>
+      <div><h4>Data Platforms</h4><p>Snowflake, Databricks, dbt Cloud, PostgreSQL, MySQL, MongoDB</p></div>
+      <div><h4>AI / Automation</h4><p>GPT-4, LLM workflows, n8n automation, REST API integration</p></div>
+      <div><h4>DevOps</h4><p>Docker, Docker Compose, CI/CD, microservices, Git, Linux</p></div>
+      <div><h4>Web Scraping</h4><p>Requests, BeautifulSoup, Scrapy, Selenium</p></div>
+      <div><h4>Visualization</h4><p>Pandas, Matplotlib, Seaborn, Streamlit</p></div>
+    </div>
+  </section>
+
+  <section class="project reveal" id="certs-sec">
+    <h2>🎓 Certifications & Credentials</h2>
+    <ul class="cert-list">
+      <li>Databricks Lakehouse Fundamentals — Databricks, 2023</li>
+      <li>Certified AWS Cloud Practitioner — Coursera, 2023</li>
+      <li>Certified AWS Data Analytics — Udemy, 2023</li>
+      <li>Certified Data Engineer — KarachidotAI, 2023</li>
+      <li>Certified Data Engineer — Emeritus USA, 2023</li>
+      <li>Certified in Python — Google (Coursera), 2023</li>
+    </ul>
+  </section>
+
+  <section class="project reveal">
+    <h2>🏅 Recognition</h2>
+    <ul class="cert-list">
+      <li>"Unveiling the Stars" — NASA Astronauts Hackathon, HiCounselor, 2023</li>
+    </ul>
+  </section>
+
+  <section class="project reveal" id="projects-top">
+    <h2>🧩 Selected Projects</h2>
+    <p class="summary" style="margin-bottom:0;">Architecture-led projects spanning cloud data pipelines, analytics engineering, AI automation, streaming, and data modeling.</p>
+    <div class="filter-row">
+      <button class="chip active" data-filter="all">All (18)</button>
+      <button class="chip" data-filter="ai">🤖 AI &amp; Automation</button>
+      <button class="chip" data-filter="data">🗄️ Data Pipelines</button>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="ai">
+    <h2>🧠 Mindify</h2>
+    <div class="role">AI-powered mental wellness companion — Backend Developer, Team DataGrains</div>
+    <p class="summary">
+      An empathetic chatbot that takes a user's text or voice input, detects the underlying emotion,
+      retrieves grounded CBT/psychology insights from a vector database, and uses Gemini 2.0 Flash to
+      craft a caring, practical response — complete with coping tips, next steps, and a cited book insight.
+    </p>
+
+    <div class="stack">
+      <span>Streamlit</span><span>Gemini 2.0 Flash</span><span>Qdrant</span>
+      <span>Sentence-Transformers (MiniLM-L6-v2)</span><span>SpeechRecognition</span><span>Python</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- User -->
+        <rect x="20" y="150" width="120" height="80" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="80" y="185" fill="#E7EAF0" font-size="13" text-anchor="middle" font-weight="600">User</text>
+        <text x="80" y="203" fill="#8B96AC" font-size="10.5" text-anchor="middle">text or voice</text>
+
+        <line x1="140" y1="190" x2="200" y2="190" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- Streamlit UI -->
+        <rect x="200" y="140" width="140" height="100" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="270" y="180" fill="#E7EAF0" font-size="13" text-anchor="middle" font-weight="600">Streamlit UI</text>
+        <text x="270" y="198" fill="#8B96AC" font-size="10.5" text-anchor="middle">app.py</text>
+        <text x="270" y="214" fill="#8B96AC" font-size="10.5" text-anchor="middle">chat + audio upload</text>
+
+        <line x1="340" y1="190" x2="400" y2="190" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- Backend box -->
+        <rect x="400" y="60" width="220" height="260" rx="10" fill="#141B29" stroke="#2A3549" stroke-dasharray="4 3"/>
+        <text x="510" y="82" fill="#8B96AC" font-size="11" text-anchor="middle" font-weight="600">backend.py</text>
+
+        <rect x="420" y="100" width="180" height="60" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="510" y="126" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">detect_emotion()</text>
+        <text x="510" y="142" fill="#8B96AC" font-size="10" text-anchor="middle">Gemini 2.0 Flash</text>
+
+        <line x1="510" y1="160" x2="510" y2="188" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="420" y="190" width="180" height="60" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="510" y="214" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">retrieve_insights()</text>
+        <text x="510" y="230" fill="#8B96AC" font-size="10" text-anchor="middle">MiniLM embed → Qdrant search</text>
+
+        <line x1="510" y1="250" x2="510" y2="278" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="420" y="280" width="180" height="34" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="510" y="301" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">build prompt + context</text>
+
+        <line x1="620" y1="190" x2="680" y2="190" stroke="#8B5CF6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- Qdrant -->
+        <rect x="420" y="220" width="0" height="0"/>
+        <line x1="600" y1="220" x2="700" y2="220" stroke="transparent"/>
+
+        <!-- Qdrant DB node (side) -->
+        <ellipse cx="700" cy="330" rx="66" ry="30" fill="#1C2536" stroke="#4FD1C5"/>
+        <text x="700" y="326" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Qdrant</text>
+        <text x="700" y="341" fill="#8B96AC" font-size="10" text-anchor="middle">CBT insight vectors</text>
+        <line x1="600" y1="220" x2="655" y2="308" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="3 2"/>
+
+        <!-- Gemini generation -->
+        <rect x="680" y="150" width="180" height="90" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="770" y="182" fill="#E7EAF0" font-size="13" text-anchor="middle" font-weight="600">Gemini 2.0 Flash</text>
+        <text x="770" y="200" fill="#8B96AC" font-size="10.5" text-anchor="middle">generates empathetic</text>
+        <text x="770" y="214" fill="#8B96AC" font-size="10.5" text-anchor="middle">reply + CBT tips</text>
+
+        <path d="M770,150 C770,90 400,60 270,140" fill="none" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="500" y="70" fill="#8B96AC" font-size="10.5" text-anchor="middle">response rendered in chat</text>
+      </svg>
+    </div>
+
+    <!-- <div class="links">
+      <a href="https://mindify-app-fh3sp4nybzvlntzkv6vsyx.streamlit.app/" target="_blank">Live app →</a>
+    </div> -->
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>⚡ Real-Time Crypto Data Pipeline</h2>
+    <div class="role">End-to-end data engineering project — Kafka, S3, Snowflake, fully dockerized</div>
+    <p class="summary">
+      A real-time pipeline that scrapes live crypto prices, streams them through a Kafka
+      producer/consumer pair, cleans and lands them as JSON in an S3 bucket, then auto-ingests
+      into Snowflake via Snowpipe the moment new files land — no manual loading step. Every
+      service (Zookeeper, Kafka broker, producer, consumer) runs as its own Docker container.
+    </p>
+
+    <div class="stack">
+      <span>Python</span><span>BeautifulSoup</span><span>Apache Kafka</span>
+      <span>Docker Compose</span><span>AWS S3</span><span>Snowflake + Snowpipe</span><span>EC2 (optional)</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- source -->
+        <rect x="15" y="130" width="110" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="70" y="160" fill="#E7EAF0" font-size="12.5" text-anchor="middle" font-weight="600">crypto.com</text>
+        <text x="70" y="177" fill="#8B96AC" font-size="10" text-anchor="middle">live price pages</text>
+
+        <line x1="125" y1="165" x2="175" y2="165" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+        <!-- docker boundary -->
+        <rect x="175" y="40" width="360" height="250" rx="10" fill="#141B29" stroke="#2A3549" stroke-dasharray="4 3"/>
+        <text x="355" y="60" fill="#8B96AC" font-size="11" text-anchor="middle" font-weight="600">docker-compose services</text>
+
+        <!-- producer -->
+        <rect x="195" y="78" width="140" height="66" rx="7" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="265" y="104" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">producer.py</text>
+        <text x="265" y="120" fill="#8B96AC" font-size="10" text-anchor="middle">scrapes + sends</text>
+        <text x="265" y="133" fill="#8B96AC" font-size="10" text-anchor="middle">to Kafka topic</text>
+
+        <line x1="335" y1="111" x2="380" y2="111" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+        <!-- broker -->
+        <rect x="380" y="78" width="135" height="66" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="447" y="104" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Kafka broker</text>
+        <text x="447" y="120" fill="#8B96AC" font-size="10" text-anchor="middle">+ Zookeeper</text>
+        <text x="447" y="133" fill="#8B96AC" font-size="10" text-anchor="middle">topic: demo_testing2</text>
+
+        <line x1="447" y1="144" x2="447" y2="180" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+        <!-- consumer -->
+        <rect x="195" y="192" width="320" height="76" rx="7" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="355" y="216" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">consumer.py</text>
+        <text x="355" y="233" fill="#8B96AC" font-size="10" text-anchor="middle">cleans fields, casts types,</text>
+        <text x="355" y="248" fill="#8B96AC" font-size="10" text-anchor="middle">writes JSON via boto3</text>
+
+        <line x1="515" y1="230" x2="575" y2="230" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+        <!-- S3 -->
+        <rect x="575" y="195" width="130" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="640" y="222" fill="#E7EAF0" font-size="12.5" text-anchor="middle" font-weight="600">AWS S3</text>
+        <text x="640" y="239" fill="#8B96AC" font-size="10" text-anchor="middle">real-time JSON files</text>
+
+        <line x1="705" y1="230" x2="765" y2="230" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow2)"/>
+        <text x="735" y="222" fill="#8B96AC" font-size="9.5" text-anchor="middle">event</text>
+
+        <!-- Snowflake -->
+        <ellipse cx="825" cy="230" rx="62" ry="34" fill="#1C2536" stroke="#4FD1C5"/>
+        <text x="825" y="225" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Snowflake</text>
+        <text x="825" y="241" fill="#8B96AC" font-size="9.5" text-anchor="middle">via Snowpipe</text>
+
+        <text x="825" y="290" fill="#8B96AC" font-size="10" text-anchor="middle">auto-ingest, no manual load</text>
+      </svg>
+    </div>
+
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>📊 Crypto Market Analytics Pipeline</h2>
+    <div class="role">End-to-end analytics engineering — BigQuery star schema, SCD2, LLM commentary</div>
+    <p class="summary">
+      Pulls live coin data from the CoinGecko API into BigQuery, models it into a proper star
+      schema with a SCD Type 2 table that tracks each coin's market-cap rank history over time,
+      then feeds a daily summary view into two places at once: an LLM that writes newsletter-style
+      market commentary, and a Streamlit dashboard that shows both the charts and that commentary
+      side by side.
+    </p>
+
+    <div class="stack">
+      <span>Python</span><span>CoinGecko API</span><span>Google BigQuery</span>
+      <span>SQL (window functions)</span><span>SCD Type 2</span><span>OpenAI GPT-4o-mini</span>
+      <span>Streamlit + Plotly</span><span>Looker Studio</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- API -->
+        <rect x="20" y="20" width="150" height="56" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="95" y="44" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">CoinGecko API</text>
+        <text x="95" y="60" fill="#8B96AC" font-size="9.5" text-anchor="middle">public, no auth</text>
+
+        <line x1="95" y1="76" x2="95" y2="104" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+        <!-- ingest -->
+        <rect x="20" y="106" width="150" height="56" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="95" y="130" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">crypto_ingest.py</text>
+        <text x="95" y="146" fill="#8B96AC" font-size="9.5" text-anchor="middle">requests + service acct</text>
+
+        <line x1="170" y1="134" x2="215" y2="134" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+        <!-- BigQuery raw -->
+        <rect x="215" y="106" width="160" height="56" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="295" y="130" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="295" y="146" fill="#8B96AC" font-size="9.5" text-anchor="middle">raw_crypto_prices</text>
+
+        <line x1="295" y1="162" x2="295" y2="190" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+        <!-- transform box -->
+        <rect x="150" y="192" width="290" height="96" rx="9" fill="#141B29" stroke="#2A3549" stroke-dasharray="4 3"/>
+        <text x="295" y="210" fill="#8B96AC" font-size="10.5" text-anchor="middle" font-weight="600">SQL transformation layer</text>
+        <text x="295" y="232" fill="#E7EAF0" font-size="11" text-anchor="middle">ROW_NUMBER() dedup → latest snapshot/day</text>
+        <text x="295" y="252" fill="#E7EAF0" font-size="11" text-anchor="middle">Star schema: FCT_PRICES · DIM_COIN · DIM_DATE</text>
+        <text x="295" y="272" fill="#E7EAF0" font-size="11" text-anchor="middle">LAG/LEAD → SCD2 rank history (DIM_COIN_HISTORY)</text>
+
+        <line x1="295" y1="288" x2="295" y2="316" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+        <!-- view -->
+        <rect x="175" y="318" width="240" height="48" rx="7" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="295" y="337" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">VW_DAILY_SUMMARY</text>
+        <text x="295" y="353" fill="#8B96AC" font-size="9.5" text-anchor="middle">latest price + rank movement</text>
+
+        <!-- branches -->
+        <line x1="415" y1="342" x2="480" y2="230" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow3)"/>
+        <line x1="415" y1="342" x2="480" y2="342" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow3)"/>
+        <line x1="415" y1="342" x2="480" y2="60" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+        <!-- LLM commentary -->
+        <rect x="480" y="30" width="180" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="570" y="54" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">🤖 llm_insights.py</text>
+        <text x="570" y="70" fill="#8B96AC" font-size="9.5" text-anchor="middle">GPT-4o-mini → AI_COMMENTARY</text>
+
+        <!-- Looker -->
+        <rect x="480" y="200" width="180" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="570" y="224" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">📈 Looker Studio</text>
+        <text x="570" y="240" fill="#8B96AC" font-size="9.5" text-anchor="middle">trends, gainers/losers</text>
+
+        <!-- Streamlit -->
+        <rect x="480" y="312" width="180" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="570" y="336" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">🖥️ Streamlit + Plotly</text>
+        <text x="570" y="352" fill="#8B96AC" font-size="9.5" text-anchor="middle">charts + AI commentary in one app</text>
+
+        <line x1="660" y1="60" x2="700" y2="342" stroke="#4FD1C5" stroke-width="1.3" stroke-dasharray="3 2" marker-end="url(#arrow3)"/>
+        <text x="720" y="200" fill="#8B96AC" font-size="9.5" text-anchor="middle" transform="rotate(90 720,200)"></text>
+      </svg>
+    </div>
+
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>🌀 Data Orchestration with Airflow</h2>
+    <div class="role">Batch pipeline orchestration — Airflow, GCS, BigQuery, Docker</div>
+    <p class="summary">
+      A daily-scheduled Airflow DAG that downloads a public NYC taxi dataset, converts it from CSV
+      to Parquet for efficient storage and querying, uploads it to Google Cloud Storage, then loads
+      it straight into BigQuery — each step a separate, retry-able task chained by dependencies.
+      Airflow itself (webserver, scheduler, Postgres metadata DB) runs entirely through Docker.
+    </p>
+
+    <div class="stack">
+      <span>Apache Airflow</span><span>Python</span><span>Docker Compose</span>
+      <span>Google Cloud Storage</span><span>BigQuery</span><span>PyArrow (Parquet)</span><span>PostgreSQL</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- orchestrator wrapper -->
+        <rect x="10" y="20" width="880" height="210" rx="10" fill="#141B29" stroke="#2A3549" stroke-dasharray="4 3"/>
+        <text x="450" y="40" fill="#8B96AC" font-size="11" text-anchor="middle" font-weight="600">Airflow DAG · data_ingestion_gcs_dag · runs @daily (Dockerized)</text>
+
+        <!-- task 1 -->
+        <rect x="35" y="80" width="180" height="90" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="125" y="108" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">download_dataset_task</text>
+        <text x="125" y="126" fill="#8B96AC" font-size="10" text-anchor="middle">BashOperator</text>
+        <text x="125" y="142" fill="#8B96AC" font-size="10" text-anchor="middle">curl NYC taxi zone</text>
+        <text x="125" y="157" fill="#8B96AC" font-size="10" text-anchor="middle">lookup CSV</text>
+
+        <line x1="215" y1="125" x2="255" y2="125" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow4)"/>
+
+        <!-- task 2 -->
+        <rect x="255" y="80" width="180" height="90" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="345" y="108" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">format_to_parquet_task</text>
+        <text x="345" y="126" fill="#8B96AC" font-size="10" text-anchor="middle">PythonOperator</text>
+        <text x="345" y="142" fill="#8B96AC" font-size="10" text-anchor="middle">CSV → Parquet</text>
+        <text x="345" y="157" fill="#8B96AC" font-size="10" text-anchor="middle">via PyArrow</text>
+
+        <line x1="435" y1="125" x2="475" y2="125" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow4)"/>
+
+        <!-- task 3 -->
+        <rect x="475" y="80" width="180" height="90" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="565" y="108" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">local_to_gcs_task</text>
+        <text x="565" y="126" fill="#8B96AC" font-size="10" text-anchor="middle">PythonOperator</text>
+        <text x="565" y="142" fill="#8B96AC" font-size="10" text-anchor="middle">uploads Parquet to</text>
+        <text x="565" y="157" fill="#8B96AC" font-size="10" text-anchor="middle">GCS bucket (raw/)</text>
+
+        <line x1="655" y1="125" x2="695" y2="125" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow4)"/>
+
+        <!-- task 4 -->
+        <rect x="695" y="80" width="175" height="90" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="782" y="108" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">bigquery_external</text>
+        <text x="782" y="123" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">_table_task</text>
+        <text x="782" y="141" fill="#8B96AC" font-size="10" text-anchor="middle">GCSToBigQueryOperator</text>
+        <text x="782" y="157" fill="#8B96AC" font-size="10" text-anchor="middle">loads into BigQuery</text>
+
+        <text x="450" y="200" fill="#8B96AC" font-size="10.5" text-anchor="middle">Each task retries independently · dependencies chained with &gt;&gt; operators</text>
+      </svg>
+    </div>
+
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>📈 Stock Market Real-Time Pipeline (Kafka + Glue/Athena + Snowflake)</h2>
+    <div class="role">Real-time streaming pipeline with dual query layers</div>
+    <p class="summary">
+      Streams historical stock index data row-by-row through Kafka to simulate a live feed, lands
+      it as JSON in S3, then makes it queryable two different ways: an AWS Glue crawler builds a
+      schema catalog so Athena can query S3 directly with no load step, while Snowflake ingests the
+      same files automatically through Snowpipe for warehouse-side analysis — comparing a
+      serverless query path against a managed warehouse path on the same data.
+    </p>
+
+    <div class="stack">
+      <span>Python</span><span>Apache Kafka</span><span>Pandas</span>
+      <span>AWS S3</span><span>AWS Glue Crawler</span><span>Amazon Athena</span><span>Snowflake + Snowpipe</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- CSV -->
+        <rect x="15" y="130" width="120" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="75" y="155" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Stock CSV</text>
+        <text x="75" y="171" fill="#8B96AC" font-size="9.5" text-anchor="middle">indexProcessed.csv</text>
+
+        <line x1="135" y1="160" x2="180" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+
+        <!-- Producer -->
+        <rect x="180" y="130" width="130" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="245" y="152" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Producer</text>
+        <text x="245" y="168" fill="#8B96AC" font-size="9.5" text-anchor="middle">samples rows → Kafka</text>
+
+        <line x1="310" y1="160" x2="355" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+
+        <!-- Kafka topic -->
+        <rect x="355" y="130" width="130" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="420" y="152" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Kafka topic</text>
+        <text x="420" y="168" fill="#8B96AC" font-size="9.5" text-anchor="middle">demo_testing2</text>
+
+        <line x1="485" y1="160" x2="530" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+
+        <!-- Consumer -->
+        <rect x="530" y="130" width="130" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="595" y="152" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Consumer</text>
+        <text x="595" y="168" fill="#8B96AC" font-size="9.5" text-anchor="middle">writes JSON to S3</text>
+
+        <line x1="660" y1="160" x2="705" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+
+        <!-- S3 -->
+        <rect x="705" y="130" width="110" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="760" y="152" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">AWS S3</text>
+        <text x="760" y="168" fill="#8B96AC" font-size="9.5" text-anchor="middle">JSON files</text>
+
+        <!-- branch down: Glue/Athena -->
+        <line x1="760" y1="190" x2="760" y2="230" stroke="#4FD1C5" stroke-width="1.5"/>
+        <line x1="760" y1="230" x2="640" y2="230" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <rect x="480" y="205" width="160" height="50" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="560" y="225" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Glue Crawler → Catalog</text>
+        <text x="560" y="240" fill="#8B96AC" font-size="9.5" text-anchor="middle">then queried via Athena</text>
+
+        <!-- branch down: Snowflake -->
+        <line x1="760" y1="230" x2="760" y2="260" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow5)"/>
+        <ellipse cx="760" cy="290" rx="62" ry="28" fill="#1C2536" stroke="#4FD1C5"/>
+        <text x="760" y="286" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Snowflake</text>
+        <text x="760" y="300" fill="#8B96AC" font-size="9" text-anchor="middle">via Snowpipe</text>
+
+        <text x="450" y="40" fill="#8B96AC" font-size="10.5" text-anchor="middle">Same S3 data queried two ways: serverless (Glue+Athena) vs. warehouse (Snowflake)</text>
+      </svg>
+    </div>
+
+  </section>
+
+  <section class="project reveal" data-cat="ai">
+    <h2>🤖 Personal Assistant — n8n AI Agent</h2>
+    <div class="role">No-code AI automation — Gemini agent orchestrating 6 Google/web tools</div>
+    <p class="summary">
+      An AI agent built as an n8n workflow: a webhook receives a request, hands it to a Gemini-powered
+      agent that keeps conversational memory across turns, and the agent decides which of six
+      connected tool groups to call — Gmail, web search, Calendar, Docs, Tasks, or Sheets — before
+      the result is sent back through the same webhook.
+    </p>
+
+    <div class="stack">
+      <span>n8n</span><span>Google Gemini</span><span>Gmail API</span><span>Google Calendar</span>
+      <span>Google Docs</span><span>Google Tasks</span><span>Google Sheets</span><span>SerpAPI</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- Webhook -->
+        <rect x="15" y="120" width="120" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="75" y="145" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Webhook</text>
+        <text x="75" y="161" fill="#8B96AC" font-size="9.5" text-anchor="middle">POST trigger</text>
+
+        <line x1="135" y1="150" x2="180" y2="150" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow6)"/>
+
+        <!-- AI agent box -->
+        <rect x="180" y="90" width="200" height="120" rx="10" fill="#141B29" stroke="#8B5CF6"/>
+        <text x="280" y="112" fill="#8B96AC" font-size="10.5" text-anchor="middle" font-weight="600">AI Agent</text>
+        <rect x="198" y="122" width="164" height="34" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="280" y="143" fill="#E7EAF0" font-size="11" text-anchor="middle">Gemini Chat Model</text>
+        <rect x="198" y="164" width="164" height="34" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="280" y="185" fill="#E7EAF0" font-size="11" text-anchor="middle">Simple Memory</text>
+
+        <line x1="380" y1="150" x2="420" y2="150" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow6)"/>
+        <text x="400" y="140" fill="#8B96AC" font-size="9" text-anchor="middle">picks a tool</text>
+
+        <!-- tools grid -->
+        <rect x="420" y="20" width="130" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="485" y="44" fill="#E7EAF0" font-size="10.5" text-anchor="middle">📧 Gmail</text>
+
+        <rect x="420" y="66" width="130" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="485" y="90" fill="#E7EAF0" font-size="10.5" text-anchor="middle">🔍 SerpAPI search</text>
+
+        <rect x="420" y="112" width="130" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="485" y="136" fill="#E7EAF0" font-size="10.5" text-anchor="middle">📅 Calendar</text>
+
+        <rect x="420" y="158" width="130" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="485" y="182" fill="#E7EAF0" font-size="10.5" text-anchor="middle">📝 Google Docs</text>
+
+        <rect x="420" y="204" width="130" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="485" y="228" fill="#E7EAF0" font-size="10.5" text-anchor="middle">✅ Google Tasks</text>
+
+        <rect x="420" y="250" width="130" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="485" y="274" fill="#E7EAF0" font-size="10.5" text-anchor="middle">💰 Sheets + Calc</text>
+
+        <!-- lines from agent to each tool -->
+        <line x1="420" y1="40" x2="405" y2="40" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <path d="M400,150 C400,40 400,40 420,40" fill="none" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <path d="M400,150 C400,86 400,86 420,86" fill="none" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <path d="M400,150 C400,132 400,132 420,132" fill="none" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <path d="M400,150 C400,178 400,178 420,178" fill="none" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <path d="M400,150 C400,224 400,224 420,224" fill="none" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <path d="M400,150 C400,270 400,270 420,270" fill="none" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+
+        <!-- Respond -->
+        <line x1="550" y1="150" x2="620" y2="150" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow6)"/>
+        <rect x="620" y="120" width="150" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="695" y="145" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Respond to</text>
+        <text x="695" y="161" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Webhook</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>💵 Nealytics — Multi-Source Revenue Data Pipeline</h2>
+    <div class="role">Cloud Function orchestrating 4 payment platforms into one warehouse</div>
+    <p class="summary">
+      A Google Cloud Function that pulls revenue data from ThriveCart, Stripe (across multiple
+      accounts, fetched in parallel), Shopify, and PayPal, and loads it all into BigQuery — with
+      incremental loading for ThriveCart (only new rows past the last synced date) and parallel
+      fetching for Stripe to keep runtime down. Every run posts a pass/fail summary to Slack, so
+      failures get flagged immediately instead of going unnoticed.
+    </p>
+
+    <div class="stack">
+      <span>Python</span><span>Google Cloud Functions</span><span>BigQuery</span>
+      <span>Stripe API</span><span>Shopify API</span><span>PayPal API</span><span>ThriveCart API</span>
+      <span>Slack Webhooks</span><span>joblib (parallel fetch)</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- trigger -->
+        <rect x="15" y="130" width="130" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="80" y="155" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">HTTP request</text>
+        <text x="80" y="171" fill="#8B96AC" font-size="9.5" text-anchor="middle">{pipelines: "..."}</text>
+
+        <line x1="145" y1="160" x2="190" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow7)"/>
+
+        <!-- main.py -->
+        <rect x="190" y="120" width="150" height="80" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="265" y="148" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">main.py</text>
+        <text x="265" y="165" fill="#8B96AC" font-size="9.5" text-anchor="middle">Cloud Function</text>
+        <text x="265" y="180" fill="#8B96AC" font-size="9.5" text-anchor="middle">runs requested pipelines</text>
+
+        <!-- 4 sources -->
+        <line x1="340" y1="130" x2="390" y2="55" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow7)"/>
+        <line x1="340" y1="150" x2="390" y2="115" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow7)"/>
+        <line x1="340" y1="170" x2="390" y2="205" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow7)"/>
+        <line x1="340" y1="190" x2="390" y2="265" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow7)"/>
+
+        <rect x="390" y="25" width="140" height="55" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="460" y="47" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">ThriveCart</text>
+        <text x="460" y="63" fill="#8B96AC" font-size="9" text-anchor="middle">incremental load</text>
+
+        <rect x="390" y="90" width="140" height="55" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="460" y="112" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Stripe</text>
+        <text x="460" y="128" fill="#8B96AC" font-size="9" text-anchor="middle">parallel across accounts</text>
+
+        <rect x="390" y="180" width="140" height="50" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="460" y="200" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Shopify</text>
+        <text x="460" y="216" fill="#8B96AC" font-size="9" text-anchor="middle">last 60 days</text>
+
+        <rect x="390" y="240" width="140" height="50" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="460" y="260" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">PayPal</text>
+        <text x="460" y="276" fill="#8B96AC" font-size="9" text-anchor="middle">last 60 days</text>
+
+        <!-- BQ -->
+        <line x1="530" y1="52" x2="600" y2="150" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <line x1="530" y1="117" x2="600" y2="150" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <line x1="530" y1="205" x2="600" y2="150" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <line x1="530" y1="265" x2="600" y2="150" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+
+        <rect x="600" y="115" width="140" height="70" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="670" y="142" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="670" y="159" fill="#8B96AC" font-size="9.5" text-anchor="middle">raw dataset per source</text>
+        <text x="670" y="174" fill="#8B96AC" font-size="9.5" text-anchor="middle">(one table each)</text>
+
+        <line x1="740" y1="150" x2="785" y2="150" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow7)"/>
+
+        <!-- slack -->
+        <rect x="785" y="120" width="105" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="837" y="145" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">💬 Slack</text>
+        <text x="837" y="161" fill="#8B96AC" font-size="9" text-anchor="middle">pass/fail summary</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>🛡️ Insightly CRM → OneDrive Export Pipeline</h2>
+    <div class="role">Azure-native CRM data export — Functions, Logic Apps, Microsoft Graph</div>
+    <p class="summary">
+      A scheduled Azure Logic App triggers five separate Azure Functions, each responsible for a
+      slice of Insightly CRM data — quotes, organisations, opportunities, equipment/invoices/users,
+      tasks, and opportunity stages. Every function pulls its entity via the Insightly API, exports
+      it to CSV, then authenticates with Microsoft Graph (MSAL client-credentials flow) to upload
+      the file straight into a shared OneDrive/SharePoint folder — splitting the work across
+      functions keeps each run well under Azure's execution time limits.
+    </p>
+
+    <div class="stack">
+      <span>Azure Functions</span><span>Azure Logic Apps</span><span>Python</span>
+      <span>Insightly CRM API</span><span>Microsoft Graph API</span><span>MSAL (OAuth)</span>
+      <span>OneDrive / SharePoint</span><span>GitHub Actions (CI/CD)</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- Logic App -->
+        <rect x="15" y="130" width="140" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="85" y="155" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Azure Logic App</text>
+        <text x="85" y="171" fill="#8B96AC" font-size="9.5" text-anchor="middle">scheduled trigger</text>
+
+        <line x1="155" y1="160" x2="195" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow8)"/>
+
+        <!-- 5 functions box -->
+        <rect x="195" y="15" width="230" height="290" rx="10" fill="#141B29" stroke="#2A3549" stroke-dasharray="4 3"/>
+        <text x="310" y="34" fill="#8B96AC" font-size="10.5" text-anchor="middle" font-weight="600">5 HTTP-triggered Azure Functions</text>
+
+        <rect x="212" y="45" width="196" height="42" rx="6" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="310" y="70" fill="#E7EAF0" font-size="11" text-anchor="middle">Trigger1 → Quote + Organisation</text>
+
+        <rect x="212" y="94" width="196" height="42" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="310" y="119" fill="#E7EAF0" font-size="11" text-anchor="middle">Trigger2 → Opportunity</text>
+
+        <rect x="212" y="143" width="196" height="42" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="310" y="168" fill="#E7EAF0" font-size="11" text-anchor="middle">Trigger3 → Equipment/Invoice/Users</text>
+
+        <rect x="212" y="192" width="196" height="42" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="310" y="217" fill="#E7EAF0" font-size="11" text-anchor="middle">Trigger4 → Task</text>
+
+        <rect x="212" y="241" width="196" height="42" rx="6" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="310" y="266" fill="#E7EAF0" font-size="11" text-anchor="middle">Trigger5 → Opportunity Stage</text>
+
+        <line x1="425" y1="160" x2="465" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow8)"/>
+
+        <!-- Insightly -->
+        <rect x="465" y="50" width="150" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="540" y="75" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Insightly CRM</text>
+        <text x="540" y="91" fill="#8B96AC" font-size="9.5" text-anchor="middle">fetch entity via API</text>
+
+        <line x1="540" y1="110" x2="540" y2="150" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow8)"/>
+
+        <rect x="465" y="152" width="150" height="50" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="540" y="172" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Export to CSV</text>
+        <text x="540" y="188" fill="#8B96AC" font-size="9.5" text-anchor="middle">per entity</text>
+
+        <line x1="615" y1="177" x2="660" y2="177" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow8)"/>
+
+        <!-- Graph/OneDrive -->
+        <rect x="660" y="130" width="150" height="90" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="735" y="155" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Microsoft Graph</text>
+        <text x="735" y="171" fill="#8B96AC" font-size="9.5" text-anchor="middle">MSAL client-credentials</text>
+        <text x="735" y="188" fill="#8B96AC" font-size="9.5" text-anchor="middle">token auth</text>
+        <text x="735" y="204" fill="#8B96AC" font-size="9.5" text-anchor="middle">→ OneDrive / SharePoint</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>📉 GA4 → BigQuery Reporting Pipeline</h2>
+    <div class="role">Google Cloud Function — self-healing analytics sync with retry logic</div>
+    <p class="summary">
+      A scheduled Cloud Function that pulls the last 10 days of sessions, events, and key events
+      from a Google Analytics 4 property (by landing page and date), then reconciles it into
+      BigQuery using a delete-then-append pattern — deleting the overlapping date range first so
+      re-runs never create duplicates. Every GA4 call and BigQuery write retries with exponential
+      backoff, and a Slack alert fires the moment a step exhausts its retries.
+    </p>
+
+    <div class="stack">
+      <span>Google Cloud Functions</span><span>Python</span><span>GA4 Reporting API</span>
+      <span>BigQuery</span><span>Slack Webhooks</span><span>OAuth2 (service account + refresh token)</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- trigger -->
+        <rect x="15" y="100" width="130" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="80" y="125" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Scheduled</text>
+        <text x="80" y="141" fill="#8B96AC" font-size="9.5" text-anchor="middle">Cloud Function call</text>
+
+        <line x1="145" y1="130" x2="190" y2="130" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow9)"/>
+
+        <!-- GA4 fetch -->
+        <rect x="190" y="90" width="160" height="80" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="270" y="118" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">fetch_data()</text>
+        <text x="270" y="135" fill="#8B96AC" font-size="9.5" text-anchor="middle">GA4 Reporting API</text>
+        <text x="270" y="150" fill="#8B96AC" font-size="9.5" text-anchor="middle">last 10 days, retries + backoff</text>
+
+        <line x1="350" y1="130" x2="395" y2="130" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow9)"/>
+
+        <!-- delete table -->
+        <rect x="395" y="30" width="170" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="480" y="55" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">delete_table()</text>
+        <text x="480" y="71" fill="#8B96AC" font-size="9.5" text-anchor="middle">clears overlapping date range</text>
+
+        <line x1="480" y1="90" x2="480" y2="118" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow9)"/>
+
+        <!-- upload -->
+        <rect x="395" y="120" width="170" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="480" y="145" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">upload_to_bq()</text>
+        <text x="480" y="161" fill="#8B96AC" font-size="9.5" text-anchor="middle">WRITE_APPEND, autodetect</text>
+
+        <line x1="565" y1="150" x2="610" y2="150" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow9)"/>
+
+        <!-- BQ -->
+        <rect x="610" y="120" width="140" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="680" y="145" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="680" y="161" fill="#8B96AC" font-size="9.5" text-anchor="middle">ga4_reporting_api_data</text>
+
+        <!-- slack branch -->
+        <line x1="270" y1="170" x2="270" y2="210" stroke="#4FD1C5" stroke-width="1.3" stroke-dasharray="3 2" marker-end="url(#arrow9)"/>
+        <rect x="195" y="212" width="150" height="42" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="270" y="236" fill="#E7EAF0" font-size="10.5" text-anchor="middle">💬 Slack alert on failure</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>🔎 Search Console → BigQuery Pipeline</h2>
+    <div class="role">Google Cloud Function — dual-path GSC sync (by query & by page)</div>
+    <p class="summary">
+      A single Cloud Function that runs two independent sync paths against the same Search
+      Console property: one pulls performance grouped by search query, the other by landing page.
+      The query-level path uses the same delete-then-append pattern as the GA4 pipeline to stay
+      idempotent on re-runs; the page-level path currently appends only. Both land in their own
+      BigQuery table, validated afterwards with clicks/impressions/position roll-up queries.
+    </p>
+
+    <div class="stack">
+      <span>Google Cloud Functions</span><span>Python</span><span>Search Console API</span>
+      <span>BigQuery</span><span>Slack Webhooks</span><span>functions-framework</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- entry -->
+        <rect x="15" y="100" width="140" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="85" y="125" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">main()</text>
+        <text x="85" y="141" fill="#8B96AC" font-size="9.5" text-anchor="middle">HTTP Cloud Function</text>
+
+        <line x1="155" y1="120" x2="200" y2="60" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow10)"/>
+        <line x1="155" y1="140" x2="200" y2="200" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow10)"/>
+
+        <!-- by query path -->
+        <rect x="200" y="20" width="190" height="80" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="295" y="42" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">fetch_data_by_query()</text>
+        <text x="295" y="58" fill="#8B96AC" font-size="9.5" text-anchor="middle">grouped by search query</text>
+        <text x="295" y="73" fill="#8B96AC" font-size="9.5" text-anchor="middle">delete overlap → append</text>
+        <text x="295" y="88" fill="#8B96AC" font-size="9.5" text-anchor="middle">(last 10 days)</text>
+
+        <line x1="390" y1="60" x2="440" y2="60" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow10)"/>
+        <rect x="440" y="35" width="180" height="50" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="530" y="55" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="530" y="70" fill="#8B96AC" font-size="9" text-anchor="middle">...search_console_data</text>
+
+        <!-- by page path -->
+        <rect x="200" y="170" width="190" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="295" y="192" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">fetch_data_by_page()</text>
+        <text x="295" y="208" fill="#8B96AC" font-size="9.5" text-anchor="middle">grouped by landing page</text>
+        <text x="295" y="223" fill="#8B96AC" font-size="9.5" text-anchor="middle">append-only</text>
+
+        <line x1="390" y1="205" x2="440" y2="205" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow10)"/>
+        <rect x="440" y="180" width="180" height="50" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="530" y="200" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="530" y="215" fill="#8B96AC" font-size="9" text-anchor="middle">...data_byPage</text>
+
+        <text x="750" y="60" fill="#8B96AC" font-size="10" text-anchor="middle">validated after load with</text>
+        <text x="750" y="76" fill="#8B96AC" font-size="10" text-anchor="middle">clicks/impressions/position</text>
+        <text x="750" y="92" fill="#8B96AC" font-size="10" text-anchor="middle">roll-up SQL queries</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>📞 CallRail → BigQuery Pipeline</h2>
+    <div class="role">Incremental sync with parallel fetch and ID-level deduplication</div>
+    <p class="summary">
+      Syncs call tracking data from CallRail into BigQuery without ever re-processing what's
+      already there: it reads the latest timestamp already in BigQuery as a watermark, splits the
+      gap up to today into monthly chunks, fetches all of them in parallel (7 threads via joblib),
+      then diffs the fetched IDs against what's already in BigQuery before uploading — so only
+      genuinely new calls, users, and form submissions ever get written.
+    </p>
+
+    <div class="stack">
+      <span>Google Cloud Functions</span><span>Python</span><span>CallRail API</span>
+      <span>BigQuery</span><span>joblib (parallel fetch)</span><span>Pandas</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- watermark -->
+        <rect x="15" y="110" width="160" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="95" y="135" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Read watermark</text>
+        <text x="95" y="151" fill="#8B96AC" font-size="9.5" text-anchor="middle">MAX(start_time)</text>
+        <text x="95" y="166" fill="#8B96AC" font-size="9.5" text-anchor="middle">from BigQuery</text>
+
+        <line x1="175" y1="145" x2="220" y2="145" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow11)"/>
+
+        <!-- chunk -->
+        <rect x="220" y="110" width="150" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="295" y="135" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Monthly chunks</text>
+        <text x="295" y="151" fill="#8B96AC" font-size="9.5" text-anchor="middle">watermark → today</text>
+
+        <line x1="370" y1="145" x2="410" y2="145" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow11)"/>
+
+        <!-- parallel fetch -->
+        <rect x="410" y="90" width="180" height="110" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="500" y="112" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Parallel fetch</text>
+        <text x="500" y="128" fill="#8B96AC" font-size="9.5" text-anchor="middle">CallRail API</text>
+        <text x="500" y="143" fill="#8B96AC" font-size="9.5" text-anchor="middle">calls · users · forms</text>
+        <text x="500" y="158" fill="#8B96AC" font-size="9.5" text-anchor="middle">joblib, 7 threads</text>
+        <text x="500" y="176" fill="#8B96AC" font-size="9.5" text-anchor="middle">one chunk per thread</text>
+
+        <line x1="590" y1="145" x2="630" y2="145" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow11)"/>
+
+        <!-- dedupe -->
+        <rect x="630" y="110" width="130" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="695" y="132" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">Dedupe</text>
+        <text x="695" y="148" fill="#8B96AC" font-size="9.5" text-anchor="middle">drop IDs already</text>
+        <text x="695" y="162" fill="#8B96AC" font-size="9.5" text-anchor="middle">in BigQuery</text>
+
+        <line x1="695" y1="180" x2="695" y2="215" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow11)"/>
+
+        <!-- BQ -->
+        <rect x="600" y="217" width="190" height="50" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="695" y="238" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="695" y="254" fill="#8B96AC" font-size="9.5" text-anchor="middle">Call_rails dataset · new rows only</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>📍 Google Business Profile → BigQuery Pipeline</h2>
+    <div class="role">Multi-location metrics sync — daily + monthly, fetched in parallel</div>
+    <p class="summary">
+      Pulls performance metrics for six Google Business Profile store locations at once, running
+      two sub-pipelines in the same function call: daily metrics for the last 8 days, and monthly
+      search-keyword data for the last month. Each pipeline fetches all six locations in parallel
+      (7 workers), then reconciles into BigQuery with the same delete-then-append pattern used
+      across the other Google-data pipelines, so re-runs stay duplicate-free.
+    </p>
+
+    <div class="stack">
+      <span>Google Cloud Functions</span><span>Python</span><span>Google Business Profile API</span>
+      <span>BigQuery</span><span>joblib (parallel fetch)</span><span>Pandas</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- entry -->
+        <rect x="15" y="95" width="130" height="70" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="80" y="120" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">main()</text>
+        <text x="80" y="136" fill="#8B96AC" font-size="9.5" text-anchor="middle">6 GBP locations</text>
+        <text x="80" y="151" fill="#8B96AC" font-size="9.5" text-anchor="middle">Michigan Auto Law</text>
+
+        <line x1="145" y1="115" x2="195" y2="55" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow12)"/>
+        <line x1="145" y1="145" x2="195" y2="195" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow12)"/>
+
+        <!-- monthly -->
+        <rect x="195" y="20" width="220" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="305" y="42" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">monthly_metrics()</text>
+        <text x="305" y="58" fill="#8B96AC" font-size="9.5" text-anchor="middle">search keywords, last month</text>
+        <text x="305" y="73" fill="#8B96AC" font-size="9.5" text-anchor="middle">7 parallel workers</text>
+
+        <line x1="415" y1="55" x2="460" y2="55" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow12)"/>
+
+        <!-- daily -->
+        <rect x="195" y="160" width="220" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="305" y="182" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">daily_metrics_data()</text>
+        <text x="305" y="198" fill="#8B96AC" font-size="9.5" text-anchor="middle">views, calls, last 8 days</text>
+        <text x="305" y="213" fill="#8B96AC" font-size="9.5" text-anchor="middle">7 parallel workers</text>
+
+        <line x1="415" y1="195" x2="460" y2="195" stroke="#4FD1C5" stroke-width="1.4" marker-end="url(#arrow12)"/>
+
+        <!-- BQ tables -->
+        <rect x="460" y="30" width="200" height="50" rx="7" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="560" y="50" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="560" y="65" fill="#8B96AC" font-size="9" text-anchor="middle">monthly_metrics_data</text>
+
+        <rect x="460" y="170" width="200" height="50" rx="7" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="560" y="190" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="560" y="205" fill="#8B96AC" font-size="9" text-anchor="middle">daily_metrics_data</text>
+
+        <text x="770" y="50" fill="#8B96AC" font-size="10" text-anchor="middle">delete overlapping</text>
+        <text x="770" y="66" fill="#8B96AC" font-size="10" text-anchor="middle">date range, then</text>
+        <text x="770" y="82" fill="#8B96AC" font-size="10" text-anchor="middle">append (no dupes)</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>🏆 Wincher SEO Rank-Tracking Pipeline</h2>
+    <div class="role">Multi-client keyword & competitor tracking — 15+ scheduled Cloud Functions</div>
+    <p class="summary">
+      Tracks keyword rankings, keyword groups, and competitor positions from Wincher for over a
+      dozen client sites (Michigan Auto Law, IHOP, Outback, Qdoba, Ferguson Roofing, and more),
+      each run as its own scheduled Cloud Function built on one shared Wincher client module. Every
+      run covers a rolling 3-month window split into single-day intervals, fetched in parallel (5
+      threads) with automatic retry on transient API errors, then truncates and reloads that date
+      range in BigQuery so the numbers stay accurate as Wincher's own data gets revised.
+    </p>
+
+    <div class="stack">
+      <span>Google Cloud Functions</span><span>Python</span><span>Wincher API</span>
+      <span>BigQuery</span><span>ThreadPoolExecutor</span><span>Slack Webhooks</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- clients stack -->
+        <rect x="15" y="20" width="150" height="34" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="90" y="42" fill="#E7EAF0" font-size="10.5" text-anchor="middle">Michigan Auto Law</text>
+
+        <rect x="15" y="60" width="150" height="34" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="90" y="82" fill="#E7EAF0" font-size="10.5" text-anchor="middle">IHOP · Outback · Qdoba</text>
+
+        <rect x="15" y="100" width="150" height="34" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="90" y="122" fill="#E7EAF0" font-size="10.5" text-anchor="middle">Ferguson Roofing</text>
+
+        <rect x="15" y="140" width="150" height="34" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="90" y="162" fill="#E7EAF0" font-size="10.5" text-anchor="middle">+ 10 more clients</text>
+        <text x="90" y="185" fill="#8B96AC" font-size="9.5" text-anchor="middle">each its own scheduled fn</text>
+
+        <line x1="165" y1="100" x2="215" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow13)"/>
+
+        <!-- shared wincher module -->
+        <rect x="215" y="65" width="170" height="70" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="300" y="90" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Wincher API client</text>
+        <text x="300" y="106" fill="#8B96AC" font-size="9.5" text-anchor="middle">keywords · groups ·</text>
+        <text x="300" y="120" fill="#8B96AC" font-size="9.5" text-anchor="middle">competitors</text>
+
+        <line x1="385" y1="100" x2="425" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow13)"/>
+
+        <!-- parallel daily intervals -->
+        <rect x="425" y="55" width="200" height="90" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="525" y="77" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">Daily intervals</text>
+        <text x="525" y="93" fill="#8B96AC" font-size="9.5" text-anchor="middle">rolling 3-month window</text>
+        <text x="525" y="108" fill="#8B96AC" font-size="9.5" text-anchor="middle">5 parallel threads</text>
+        <text x="525" y="123" fill="#8B96AC" font-size="9.5" text-anchor="middle">retry on 500 errors</text>
+
+        <line x1="625" y1="100" x2="665" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow13)"/>
+
+        <!-- BQ -->
+        <rect x="665" y="70" width="190" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="760" y="93" fill="#E7EAF0" font-size="11.5" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="760" y="109" fill="#8B96AC" font-size="9.5" text-anchor="middle">truncate window → reload</text>
+
+        <text x="450" y="210" fill="#8B96AC" font-size="10" text-anchor="middle">Same shared client module powers every client's pipeline —</text>
+        <text x="450" y="226" fill="#8B96AC" font-size="10" text-anchor="middle">only the website ID and destination table change per script</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>📱 Facebook & Instagram Ads Data Pipeline</h2>
+    <div class="role">Meta Marketing API → BigQuery, multi-endpoint social data sync</div>
+    <p class="summary">
+      Pulls marketing and organic data from Meta's platform through five independent modules —
+      Page insights, post performance, ad performance, ad creative details, and Instagram user
+      insights — each loading into its own BigQuery table. A same-day-run guard checks whether a
+      table already has today's data before pulling again, avoiding wasted API calls when the
+      function gets triggered more than once in a day.
+    </p>
+
+    <div class="stack">
+      <span>Google Cloud Functions</span><span>Python</span><span>Meta Marketing API</span>
+      <span>Instagram Graph API</span><span>BigQuery</span>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arrow14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/>
+          </marker>
+        </defs>
+
+        <!-- entry -->
+        <rect x="15" y="105" width="130" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="80" y="130" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">main()</text>
+        <text x="80" y="146" fill="#8B96AC" font-size="9.5" text-anchor="middle">Cloud Function</text>
+
+        <line x1="145" y1="125" x2="190" y2="35" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow14)"/>
+        <line x1="145" y1="130" x2="190" y2="90" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow14)"/>
+        <line x1="145" y1="140" x2="190" y2="150" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow14)"/>
+        <line x1="145" y1="150" x2="190" y2="210" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow14)"/>
+        <line x1="145" y1="160" x2="190" y2="255" stroke="#4FD1C5" stroke-width="1.3" marker-end="url(#arrow14)"/>
+
+        <rect x="190" y="15" width="180" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="280" y="40" fill="#E7EAF0" font-size="11" text-anchor="middle">facebook_page_insights()</text>
+
+        <rect x="190" y="70" width="180" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="280" y="95" fill="#E7EAF0" font-size="11" text-anchor="middle">facebook_posts()</text>
+
+        <rect x="190" y="125" width="180" height="40" rx="6" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="280" y="150" fill="#E7EAF0" font-size="11" text-anchor="middle">facebook_ads_creative()</text>
+
+        <rect x="190" y="180" width="180" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="280" y="205" fill="#E7EAF0" font-size="11" text-anchor="middle">facebook_ads()</text>
+
+        <rect x="190" y="235" width="180" height="40" rx="6" fill="#1C2536" stroke="#2A3549"/>
+        <text x="280" y="260" fill="#E7EAF0" font-size="11" text-anchor="middle">instagram_user_insights()</text>
+
+        <!-- converge to BQ -->
+        <line x1="370" y1="35" x2="440" y2="130" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <line x1="370" y1="90" x2="440" y2="130" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <line x1="370" y1="145" x2="440" y2="140" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <line x1="370" y1="200" x2="440" y2="150" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+        <line x1="370" y1="255" x2="440" y2="150" stroke="#4FD1C5" stroke-width="1" stroke-dasharray="2 2"/>
+
+        <rect x="440" y="105" width="190" height="70" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="535" y="128" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">BigQuery</text>
+        <text x="535" y="144" fill="#8B96AC" font-size="9.5" text-anchor="middle">one table per endpoint</text>
+        <text x="535" y="159" fill="#8B96AC" font-size="9.5" text-anchor="middle">facebook_data_raw dataset</text>
+
+        <line x1="630" y1="140" x2="675" y2="140" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#arrow14)"/>
+
+        <rect x="675" y="105" width="200" height="70" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="775" y="128" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">should_run_today()</text>
+        <text x="775" y="144" fill="#8B96AC" font-size="9.5" text-anchor="middle">checks today's data</text>
+        <text x="775" y="159" fill="#8B96AC" font-size="9.5" text-anchor="middle">skips duplicate runs</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>🏛️ CFPB Complaints Pipeline — Airflow + Streamlit</h2>
+    <div class="role">Recursive multi-state API scrape → Google Sheets → live dashboard</div>
+    <p class="summary">
+      A daily Airflow DAG recurses through every U.S. state to pull consumer financial complaint
+      data from the CFPB's public API, transforms it, and pushes it into Google Sheets — which a
+      Streamlit dashboard then reads directly to give stakeholders a state-by-state, always-current
+      view of complaint trends without anyone touching a spreadsheet by hand.
+    </p>
+    <div class="stack">
+      <span>Apache Airflow</span><span>Python</span><span>CFPB Public API</span>
+      <span>Google Sheets API</span><span>Streamlit</span>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="a15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/></marker></defs>
+        <rect x="15" y="70" width="150" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="90" y="95" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">extract_task</text>
+        <text x="90" y="111" fill="#8B96AC" font-size="9.5" text-anchor="middle">CFPB API, all 50 states</text>
+        <line x1="165" y1="100" x2="205" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a15)"/>
+        <rect x="205" y="70" width="140" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="275" y="95" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">database_task</text>
+        <text x="275" y="111" fill="#8B96AC" font-size="9.5" text-anchor="middle">stage raw records</text>
+        <line x1="345" y1="100" x2="385" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a15)"/>
+        <rect x="385" y="70" width="140" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="455" y="95" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">transform_task</text>
+        <text x="455" y="111" fill="#8B96AC" font-size="9.5" text-anchor="middle">clean + reshape</text>
+        <line x1="525" y1="100" x2="565" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a15)"/>
+        <rect x="565" y="70" width="150" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="640" y="95" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">google_sheet task</text>
+        <text x="640" y="111" fill="#8B96AC" font-size="9.5" text-anchor="middle">writes results</text>
+        <line x1="715" y1="100" x2="755" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a15)"/>
+        <rect x="755" y="70" width="130" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="820" y="95" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Streamlit</text>
+        <text x="820" y="111" fill="#8B96AC" font-size="9.5" text-anchor="middle">live dashboard</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>🐙 Scraping 1M+ GitHub Repositories on GCP</h2>
+    <div class="role">Large-scale API harvesting with multithreading + EDA</div>
+    <p class="summary">
+      Paginates through GitHub's public repository listing and fetches over a million repos,
+      enriching each with follower counts, languages, and stargazers through concurrent worker
+      threads with automatic retry on failed requests. The resulting dataset then feeds an
+      exploratory analysis notebook that surfaces trends across languages, audiences, and user
+      attributes — turning raw API output into a dataset someone can actually draw conclusions from.
+    </p>
+    <div class="stack">
+      <span>Python</span><span>GitHub REST API</span><span>concurrent.futures</span>
+      <span>Retry/backoff</span><span>Pandas</span><span>Matplotlib</span>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 190" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="a16" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/></marker></defs>
+        <rect x="15" y="60" width="150" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="90" y="85" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">GitHub REST API</text>
+        <text x="90" y="101" fill="#8B96AC" font-size="9.5" text-anchor="middle">paginated repo list</text>
+        <line x1="165" y1="90" x2="210" y2="90" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a16)"/>
+        <rect x="210" y="50" width="200" height="80" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="310" y="75" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Threaded fetch + retry</text>
+        <text x="310" y="91" fill="#8B96AC" font-size="9.5" text-anchor="middle">enrich: followers, languages,</text>
+        <text x="310" y="106" fill="#8B96AC" font-size="9.5" text-anchor="middle">stargazers per repo</text>
+        <line x1="410" y1="90" x2="455" y2="90" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a16)"/>
+        <rect x="455" y="60" width="130" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="520" y="85" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">CSV dataset</text>
+        <text x="520" y="101" fill="#8B96AC" font-size="9.5" text-anchor="middle">1M+ rows</text>
+        <line x1="585" y1="90" x2="625" y2="90" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a16)"/>
+        <rect x="625" y="50" width="250" height="80" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="750" y="75" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">EDA notebook</text>
+        <text x="750" y="91" fill="#8B96AC" font-size="9.5" text-anchor="middle">Pandas + Matplotlib</text>
+        <text x="750" y="106" fill="#8B96AC" font-size="9.5" text-anchor="middle">language &amp; audience trends</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>⭐ Northwind OLTP → OLAP Star Schema (PySpark SCD2)</h2>
+    <div class="role">Data warehouse modeling + Slowly Changing Dimension implementation</div>
+    <p class="summary">
+      Redesigns the classic Northwind OLTP database into a proper star schema: a fact table
+      grained at order/order-detail level with foreign keys to denormalized Employee, Customer,
+      and Product dimensions, plus a Date dimension. MySQL procedures migrate the data from OLTP to
+      OLAP, and PySpark implements a working Slowly Changing Dimension (Type 2) on the Employee
+      dimension — validated against both an insert case and an update case to prove history is
+      tracked correctly.
+    </p>
+    <div class="stack">
+      <span>PySpark</span><span>MySQL</span><span>Star Schema Modeling</span>
+      <span>SCD Type 2</span><span>SQLAlchemy</span>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="a17" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/></marker></defs>
+        <rect x="15" y="70" width="150" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="90" y="95" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">MySQL OLTP</text>
+        <text x="90" y="111" fill="#8B96AC" font-size="9.5" text-anchor="middle">northwind database</text>
+        <line x1="165" y1="100" x2="205" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a17)"/>
+        <rect x="205" y="60" width="180" height="80" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="295" y="82" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Migration procedures</text>
+        <text x="295" y="98" fill="#8B96AC" font-size="9.5" text-anchor="middle">denormalize dims +</text>
+        <text x="295" y="113" fill="#8B96AC" font-size="9.5" text-anchor="middle">build fact grain</text>
+        <line x1="385" y1="100" x2="425" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a17)"/>
+        <rect x="425" y="70" width="170" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="510" y="95" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">MySQL OLAP</text>
+        <text x="510" y="111" fill="#8B96AC" font-size="9.5" text-anchor="middle">star schema (starflow)</text>
+        <line x1="510" y1="130" x2="510" y2="160" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a17)"/>
+        <rect x="405" y="10" width="210" height="45" rx="7" fill="#1C2536" stroke="#2A3549"/>
+        <text x="510" y="37" fill="#E7EAF0" font-size="11" text-anchor="middle" font-weight="600">Fact: Order + OrderDetail</text>
+        <rect x="640" y="70" width="230" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="755" y="92" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">PySpark SCD2</text>
+        <text x="755" y="108" fill="#8B96AC" font-size="9.5" text-anchor="middle">Employee dim, insert + update tested</text>
+        <line x1="595" y1="100" x2="635" y2="100" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a17)"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="project reveal" data-cat="data">
+    <h2>🚢 Nested JSON Streaming — Kafka + PySpark</h2>
+    <div class="role">Exam solution — structured streaming, schema flattening, data quality rules</div>
+    <p class="summary">
+      Reads nested Titanic-dataset JSON messages off a Dockerized Kafka topic, applies an explicit
+      schema to work with the nested fields through PySpark's API, then flattens everything to a
+      single level. From there it drops duplicate rows, enforces that key columns are never null,
+      removes fields that aren't needed downstream, fixes numeric types, and writes the cleaned
+      result out as line-delimited JSON.
+    </p>
+    <div class="stack">
+      <span>Apache Kafka</span><span>PySpark</span><span>Docker Compose</span><span>Structured Schema</span>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 190" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="a18" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4FD1C5"/></marker></defs>
+        <rect x="15" y="65" width="130" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="80" y="90" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">titanic.csv</text>
+        <text x="80" y="106" fill="#8B96AC" font-size="9.5" text-anchor="middle">reshaped to nested JSON</text>
+        <line x1="145" y1="95" x2="185" y2="95" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a18)"/>
+        <rect x="185" y="65" width="150" height="60" rx="8" fill="#1C2536" stroke="#2A3549"/>
+        <text x="260" y="90" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">Kafka topic</text>
+        <text x="260" y="106" fill="#8B96AC" font-size="9.5" text-anchor="middle">titanic_topic (batch)</text>
+        <line x1="335" y1="95" x2="375" y2="95" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a18)"/>
+        <rect x="375" y="30" width="260" height="130" rx="9" fill="#141B29" stroke="#2A3549" stroke-dasharray="4 3"/>
+        <text x="505" y="50" fill="#8B96AC" font-size="10.5" text-anchor="middle" font-weight="600">PySpark processing</text>
+        <text x="505" y="72" fill="#E7EAF0" font-size="11" text-anchor="middle">Apply schema → flatten nested cols</text>
+        <text x="505" y="92" fill="#E7EAF0" font-size="11" text-anchor="middle">Drop duplicates · enforce not-null</text>
+        <text x="505" y="112" fill="#E7EAF0" font-size="11" text-anchor="middle">Drop unused cols · fix types</text>
+        <text x="505" y="132" fill="#E7EAF0" font-size="11" text-anchor="middle">(Age, Fare)</text>
+        <line x1="635" y1="95" x2="675" y2="95" stroke="#4FD1C5" stroke-width="1.5" marker-end="url(#a18)"/>
+        <rect x="675" y="65" width="200" height="60" rx="8" fill="#1C2536" stroke="#8B5CF6"/>
+        <text x="775" y="90" fill="#E7EAF0" font-size="12" text-anchor="middle" font-weight="600">JSON lines output</text>
+        <text x="775" y="106" fill="#8B96AC" font-size="9.5" text-anchor="middle">via DataFrameWriter</text>
+      </svg>
+    </div>
+  </section>
+
+
+</div>
+<script>
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal:not(.in)');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+revealEls.forEach(el => io.observe(el));
+
+// Project filter
+const chips = document.querySelectorAll('.chip');
+const projectSections = document.querySelectorAll('section.project[data-cat]');
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const filter = chip.dataset.filter;
+    projectSections.forEach(sec => {
+      const show = filter === 'all' || sec.dataset.cat === filter;
+      sec.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
