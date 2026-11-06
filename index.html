@@ -124,6 +124,15 @@ h1 em{font-style:normal;color:var(--accent)}
 .diagram-wrap{background-color:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;overflow-x:auto;background-image:radial-gradient(var(--dot) 1px,transparent 1px);background-size:18px 18px}
 .diagram-wrap svg{display:block;min-width:820px;width:100%;height:auto}
 
+.filter-label{width:100%;color:var(--muted-2);font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:-2px}
+.filter-row.tech{margin-top:-14px}
+.chip.tech.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.chip small{opacity:.7;font-weight:600;margin-left:4px}
+.result-count{color:var(--muted);font-size:.88rem;margin:-10px 0 26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.result-count:empty{display:none}
+.result-count a{text-decoration:none;font-size:.8rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);padding:5px 12px;border-radius:999px;transition:all .2s}
+.result-count a:hover{background:var(--accent);color:#fff}
+
 /* certs */
 .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cert{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
@@ -201,7 +210,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     <div class="stats">
       <div class="stat reveal"><b>3+</b><span>Years building production data pipelines</span></div>
       <div class="stat reveal"><b>85%</b><span>Manual reporting effort reduced (Azure pipeline)</span></div>
-      <div class="stat reveal"><b>18</b><span>Architecture-led projects</span></div>
+      <div class="stat reveal"><b>21</b><span>Architecture-led projects</span></div>
       <div class="stat reveal"><b>3</b><span>Cloud platforms: GCP · AWS · Azure</span></div>
     </div>
   </div>
@@ -277,7 +286,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     <div class="kicker">Core capabilities</div>
     <h2 class="sec-title">Skills &amp; technology.</h2>
     <p class="sec-copy">A practical mix of data engineering, cloud infrastructure, automation and AI application development.</p>
-    <div class="skills-grid"><div class="skill reveal"><h4>Languages &amp; Backend</h4><p>Python, SQL, Flask, FastAPI, Django</p></div><div class="skill reveal"><h4>Data Engineering</h4><p>ETL/ELT pipelines, data warehousing, data modeling, SCD2</p></div><div class="skill reveal"><h4>Big Data &amp; Streaming</h4><p>Apache Spark (PySpark, SparkSQL), Kafka (batch &amp; streaming)</p></div><div class="skill reveal"><h4>Orchestration</h4><p>Apache Airflow, Cloud Scheduler, Cron</p></div><div class="skill reveal"><h4>Cloud: AWS</h4><p>S3, Glue, EC2, Lambda, Athena, IAM, DataBrew, QuickSight</p></div><div class="skill reveal"><h4>Cloud: GCP</h4><p>BigQuery, Cloud Functions, Cloud Storage, Vertex AI, Compute Engine, Looker Studio</p></div><div class="skill reveal"><h4>Cloud: Azure</h4><p>Azure Functions, Logic Apps</p></div><div class="skill reveal"><h4>Data Platforms</h4><p>Snowflake, Databricks, dbt Cloud, PostgreSQL, MySQL, MongoDB</p></div><div class="skill reveal"><h4>AI / Automation</h4><p>GPT-4, LLM workflows, n8n automation, REST API integration</p></div><div class="skill reveal"><h4>DevOps</h4><p>Docker, Docker Compose, CI/CD, microservices, Git, Linux</p></div><div class="skill reveal"><h4>Web Scraping</h4><p>Requests, BeautifulSoup, Scrapy, Selenium</p></div><div class="skill reveal"><h4>Visualization</h4><p>Pandas, Matplotlib, Seaborn, Streamlit</p></div></div>
+    <div class="skills-grid"><div class="skill reveal"><h4>Languages &amp; Backend</h4><p>Python, SQL, Flask, FastAPI, Django</p></div><div class="skill reveal"><h4>Data Engineering</h4><p>ETL/ELT pipelines, data warehousing, data modeling, SCD2</p></div><div class="skill reveal"><h4>Big Data &amp; Streaming</h4><p>Apache Spark (PySpark, SparkSQL), Kafka (batch &amp; streaming)</p></div><div class="skill reveal"><h4>Orchestration</h4><p>Apache Airflow, Cloud Scheduler, Cron</p></div><div class="skill reveal"><h4>Cloud: AWS</h4><p>S3, Glue, EC2, Lambda, Athena, IAM, DataBrew, QuickSight</p></div><div class="skill reveal"><h4>Cloud: GCP</h4><p>BigQuery, Cloud Functions, Cloud Storage, Vertex AI, Compute Engine, Looker Studio</p></div><div class="skill reveal"><h4>Cloud: Azure</h4><p>Azure Functions, Logic Apps</p></div><div class="skill reveal"><h4>Data Platforms</h4><p>Snowflake, Databricks, dbt Cloud, PostgreSQL, MySQL, MongoDB</p></div><div class="skill reveal"><h4>AI / Automation</h4><p>GPT-4, LLM workflows, RAG &amp; LangChain, Text-to-SQL, n8n automation, REST API integration</p></div><div class="skill reveal"><h4>DevOps</h4><p>Docker, Docker Compose, CI/CD, microservices, Git, Linux</p></div><div class="skill reveal"><h4>Web Scraping</h4><p>Requests, BeautifulSoup, Scrapy, Selenium</p></div><div class="skill reveal"><h4>Visualization</h4><p>Pandas, Matplotlib, Seaborn, Streamlit</p></div></div>
   </div>
 </section>
 
@@ -287,10 +296,20 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     <h2 class="sec-title">Architecture-led project portfolio.</h2>
     <p class="sec-copy">Each project includes its end-to-end architecture.</p>
     <div class="filter-row">
-      <button class="chip active" data-filter="all">All (18)</button>
+      <span class="filter-label">Type</span>
+      <button class="chip active" data-filter="all">All (21)</button>
       <button class="chip" data-filter="ai">AI &amp; Automation</button>
       <button class="chip" data-filter="data">Data Pipelines</button>
     </div>
+    <div class="filter-row tech">
+      <span class="filter-label">Technology</span>
+      <button class="chip tech active" data-tech="all">Any</button>
+      <button class="chip tech" data-tech="bigquery">BigQuery</button>
+      <button class="chip tech" data-tech="aws">AWS</button>
+      <button class="chip tech" data-tech="azure">Azure</button>
+      <button class="chip tech" data-tech="snowflake">Snowflake</button>
+    </div>
+    <p class="result-count" id="resultCount"></p>
 
     <article class="proj reveal" data-cat="ai">
       <div class="proj-head"><span class="proj-num">01</span><span class="pill">AI &amp; Automation</span></div>
@@ -362,8 +381,18 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
       <div class="diagram-wrap"><svg viewBox="0 0 1040 244" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" role="img"><defs><marker id="arp7" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="dg-arrow"/></marker></defs><text x="101.6" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">TRIGGER</text><line x1="16.0" y1="34" x2="187.2" y2="34" class="dg-hline" stroke-width="1.5"/><text x="310.8" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">PIPELINES</text><line x1="225.2" y1="34" x2="396.4" y2="34" class="dg-hline" stroke-width="1.5"/><text x="520.0" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">EXTRACT</text><line x1="434.4" y1="34" x2="605.6" y2="34" class="dg-hline" stroke-width="1.5"/><text x="729.2" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">RECONCILE</text><line x1="643.6" y1="34" x2="814.8" y2="34" class="dg-hline" stroke-width="1.5"/><text x="938.4" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">WAREHOUSE</text><line x1="852.8" y1="34" x2="1024.0" y2="34" class="dg-hline" stroke-width="1.5"/><path d="M187.2,134.0 C205.7,134.0 205.7,89.5 224.2,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp7)"/><path d="M187.2,134.0 C205.7,134.0 205.7,178.5 224.2,178.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp7)"/><path d="M396.4,89.5 C414.9,89.5 414.9,134.0 433.4,134.0" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp7)"/><path d="M396.4,178.5 C414.9,178.5 414.9,134.0 433.4,134.0" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp7)"/><path d="M605.6,134.0 C624.1,134.0 624.1,134.0 642.6,134.0" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp7)"/><path d="M814.8,134.0 C833.3,134.0 833.3,89.5 851.8,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp7)"/><path d="M814.8,134.0 C833.3,134.0 833.3,178.5 851.8,178.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp7)"/><rect x="16.0" y="96.5" width="171.2" height="75" rx="10" class="nd-s" stroke-width="1.3"/><text x="101.6" y="123.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-s">main()</text><text x="101.6" y="142.5" text-anchor="middle" font-size="10.5" class="dg-sub">Cloud Function · 6 store</text><text x="101.6" y="155.5" text-anchor="middle" font-size="10.5" class="dg-sub">locations</text><rect x="225.2" y="52.0" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="310.8" y="79.0" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">monthly_metrics()</text><text x="310.8" y="98.0" text-anchor="middle" font-size="10.5" class="dg-sub">search keywords · last</text><text x="310.8" y="111.0" text-anchor="middle" font-size="10.5" class="dg-sub">month</text><rect x="225.2" y="141.0" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="310.8" y="174.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">daily_metrics_data()</text><text x="310.8" y="193.5" text-anchor="middle" font-size="10.5" class="dg-sub">views, calls · last 8 days</text><rect x="434.4" y="96.5" width="171.2" height="75" rx="10" class="nd-s" stroke-width="1.3"/><text x="520.0" y="123.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-s">Business Profile API</text><text x="520.0" y="142.5" text-anchor="middle" font-size="10.5" class="dg-sub">all locations fetched, 7</text><text x="520.0" y="155.5" text-anchor="middle" font-size="10.5" class="dg-sub">parallel workers</text><rect x="643.6" y="96.5" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="729.2" y="123.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">Delete → append</text><text x="729.2" y="142.5" text-anchor="middle" font-size="10.5" class="dg-sub">overlapping date range</text><text x="729.2" y="155.5" text-anchor="middle" font-size="10.5" class="dg-sub">removed first</text><rect x="852.8" y="52.0" width="171.2" height="75" rx="10" class="nd-d" stroke-width="1.3"/><text x="938.4" y="85.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-d">BigQuery</text><text x="938.4" y="104.5" text-anchor="middle" font-size="10.5" class="dg-sub">monthly_metrics_data</text><rect x="852.8" y="141.0" width="171.2" height="75" rx="10" class="nd-d" stroke-width="1.3"/><text x="938.4" y="174.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-d">BigQuery</text><text x="938.4" y="193.5" text-anchor="middle" font-size="10.5" class="dg-sub">daily_metrics_data</text></svg></div>
     </article>
 
-    <article class="proj reveal" data-cat="data">
+        <article class="proj reveal" data-cat="data">
       <div class="proj-head"><span class="proj-num">08</span><span class="pill">Data Pipeline</span></div>
+      <h3>E-Commerce Data &rarr; Snowflake Pipeline (dbt + Airflow)</h3>
+      <div class="role">End-to-end ELT, API extraction, Snowflake warehouse, dbt modeling, Airflow orchestration</div>
+      <p class="summary">Extracts products, users, carts and cart items from the e-commerce platform&rsquo;s REST API using parallel paginated requests, flattens the nested JSON (addresses, cart line items) into pandas DataFrames, and loads them into Snowflake RAW tables with write_pandas. dbt then builds staging models and analytics-ready marts (dim_products, dim_customers, fct_orders), and an Airflow DAG runs the whole flow daily: extract and load, dbt run, then dbt test.</p>
+      <div class="stack"><span>Python</span><span>pandas</span><span>ThreadPoolExecutor</span><span>REST API</span><span>Snowflake</span><span>dbt</span><span>Apache Airflow</span></div>
+      <div class="arch-label"><span>Architecture</span></div>
+      <div class="diagram-wrap"><svg viewBox="0 0 1040 250" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" role="img"><defs><marker id="arp20" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="dg-arrow"/></marker></defs><text x="101.6" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">SOURCE</text><line x1="16" y1="34" x2="187.2" y2="34" class="dg-hline" stroke-width="1.5"/><text x="310.8" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">EXTRACT</text><line x1="225.2" y1="34" x2="396.4" y2="34" class="dg-hline" stroke-width="1.5"/><text x="520" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">RAW LAYER</text><line x1="434.4" y1="34" x2="605.6" y2="34" class="dg-hline" stroke-width="1.5"/><text x="729.2" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">STAGING</text><line x1="643.6" y1="34" x2="814.8" y2="34" class="dg-hline" stroke-width="1.5"/><text x="938.4" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">MARTS</text><line x1="852.8" y1="34" x2="1024" y2="34" class="dg-hline" stroke-width="1.5"/><path d="M187.2,89.5 L224.2,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp20)"/><path d="M396.4,89.5 L433.4,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp20)"/><path d="M605.6,89.5 L642.6,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp20)"/><path d="M814.8,89.5 L851.8,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp20)"/><path d="M310.8,178 L310.8,129" fill="none" class="dg-edge" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arp20)"/><path d="M729.2,178 L729.2,129" fill="none" class="dg-edge" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arp20)"/><rect x="16" y="52" width="171.2" height="75" rx="10" class="nd-s" stroke-width="1.3"/><text x="101.6" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-s">E-commerce platform</text><text x="101.6" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">REST API · products,</text><text x="101.6" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">users · carts · items</text><rect x="225.2" y="52" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="310.8" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">app.py</text><text x="310.8" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">parallel pagination ·</text><text x="310.8" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">flatten to pandas</text><rect x="434.4" y="52" width="171.2" height="75" rx="10" class="nd-d" stroke-width="1.3"/><text x="520" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-d">Snowflake RAW</text><text x="520" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">write_pandas · RAW_</text><text x="520" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">PRODUCTS / USERS / CARTS</text><rect x="643.6" y="52" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="729.2" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">dbt staging</text><text x="729.2" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">stg_products · stg_users</text><text x="729.2" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">· stg_carts · stg_cart_items</text><rect x="852.8" y="52" width="171.2" height="75" rx="10" class="nd-d" stroke-width="1.3"/><text x="938.4" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-d">dbt marts</text><text x="938.4" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">dim_products · dim_</text><text x="938.4" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">customers · fct_orders</text><rect x="225.2" y="178" width="589.6" height="58" rx="10" class="nd-a" stroke-width="1.3"/><text x="520" y="203" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-a">Apache Airflow DAG · daily at midnight</text><text x="520" y="222" text-anchor="middle" font-size="10.5" class="dg-sub">extract + load → dbt run → dbt test</text></svg></div>
+    </article>
+
+<article class="proj reveal" data-cat="data">
+      <div class="proj-head"><span class="proj-num">09</span><span class="pill">Data Pipeline</span></div>
       <h3>Crypto Market Analytics Pipeline</h3>
       <div class="role">End-to-end analytics engineering, BigQuery star schema, SCD2, LLM commentary</div>
       <p class="summary">Pulls live coin data from the CoinGecko API into BigQuery, models it into a proper star schema with a SCD Type 2 table that tracks each coin&#x27;s market-cap rank history over time, then feeds a daily summary view into two places at once: an LLM that writes newsletter-style market commentary, and a Streamlit dashboard that shows both the charts and that commentary side by side.</p>
@@ -373,7 +402,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">09</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">10</span><span class="pill">Data Pipeline</span></div>
       <h3>Stock Market Real-Time Pipeline (Kafka + Glue/Athena + Snowflake)</h3>
       <div class="role">Real-time streaming pipeline with dual query layers</div>
       <p class="summary">Streams historical stock index data row-by-row through Kafka to simulate a live feed, lands it as JSON in S3, then makes it queryable two different ways: an AWS Glue crawler builds a schema catalog so Athena can query S3 directly with no load step, while Snowflake ingests the same files automatically through Snowpipe for warehouse-side analysis, comparing a serverless query path against a managed warehouse path on the same data.</p>
@@ -383,7 +412,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">10</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">11</span><span class="pill">Data Pipeline</span></div>
       <h3>CallRail → BigQuery Pipeline</h3>
       <div class="role">Incremental sync with parallel fetch and ID-level deduplication</div>
       <p class="summary">Syncs call tracking data from CallRail into BigQuery without ever re-processing what&#x27;s already there: it reads the latest timestamp already in BigQuery as a watermark, splits the gap up to today into monthly chunks, fetches all of them in parallel (7 threads via joblib), then diffs the fetched IDs against what&#x27;s already in BigQuery before uploading, so only genuinely new calls, users, and form submissions ever get written.</p>
@@ -393,7 +422,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">11</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">12</span><span class="pill">Data Pipeline</span></div>
       <h3>Wincher SEO Rank-Tracking Pipeline</h3>
       <div class="role">Multi-client keyword &amp; competitor tracking, 15+ scheduled Cloud Functions</div>
       <p class="summary">Tracks keyword rankings, keyword groups, and competitor positions from Wincher for over a dozen client sites (Michigan Auto Law, IHOP, Outback, Qdoba, Ferguson Roofing, and more), each run as its own scheduled Cloud Function built on one shared Wincher client module. Every run covers a rolling 3-month window split into single-day intervals, fetched in parallel (5 threads) with automatic retry on transient API errors, then truncates and reloads that date range in BigQuery so the numbers stay accurate as Wincher&#x27;s own data gets revised.</p>
@@ -403,7 +432,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="ai">
-      <div class="proj-head"><span class="proj-num">12</span><span class="pill">AI &amp; Automation</span></div>
+      <div class="proj-head"><span class="proj-num">13</span><span class="pill">AI &amp; Automation</span></div>
       <h3>Personal Assistant: n8n AI Agent</h3>
       <div class="role">No-code AI automation, Gemini agent orchestrating 6 Google/web tools</div>
       <p class="summary">An AI agent built as an n8n workflow: a webhook receives a request, hands it to a Gemini-powered agent that keeps conversational memory across turns, and the agent decides which of six connected tool groups to call, Gmail, web search, Calendar, Docs, Tasks, or Sheets, before the result is sent back through the same webhook.</p>
@@ -413,7 +442,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">13</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">14</span><span class="pill">Data Pipeline</span></div>
       <h3>Real-Time Crypto Data Pipeline</h3>
       <div class="role">End-to-end data engineering project, Kafka, S3, Snowflake, fully dockerized</div>
       <p class="summary">A real-time pipeline that scrapes live crypto prices, streams them through a Kafka producer/consumer pair, cleans and lands them as JSON in an S3 bucket, then auto-ingests into Snowflake via Snowpipe the moment new files land, no manual loading step. Every service (Zookeeper, Kafka broker, producer, consumer) runs as its own Docker container.</p>
@@ -423,7 +452,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">14</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">15</span><span class="pill">Data Pipeline</span></div>
       <h3>Data Orchestration with Airflow</h3>
       <div class="role">Batch pipeline orchestration, Airflow, GCS, BigQuery, Docker</div>
       <p class="summary">A daily-scheduled Airflow DAG that downloads a public NYC taxi dataset, converts it from CSV to Parquet for efficient storage and querying, uploads it to Google Cloud Storage, then loads it straight into BigQuery, each step a separate, retry-able task chained by dependencies. Airflow itself (webserver, scheduler, Postgres metadata DB) runs entirely through Docker.</p>
@@ -433,7 +462,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">15</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">16</span><span class="pill">Data Pipeline</span></div>
       <h3>CFPB Complaints Pipeline: Airflow + Streamlit</h3>
       <div class="role">Recursive multi-state API scrape → Google Sheets → live dashboard</div>
       <p class="summary">A daily Airflow DAG recurses through every U.S. state to pull consumer financial complaint data from the CFPB&#x27;s public API, transforms it, and pushes it into Google Sheets, which a Streamlit dashboard then reads directly to give stakeholders a state-by-state, always-current view of complaint trends without anyone touching a spreadsheet by hand.</p>
@@ -443,7 +472,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">16</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">17</span><span class="pill">Data Pipeline</span></div>
       <h3>Scraping 1M+ GitHub Repositories on GCP</h3>
       <div class="role">Large-scale API harvesting with multithreading + EDA</div>
       <p class="summary">Paginates through GitHub&#x27;s public repository listing and fetches over a million repos, enriching each with follower counts, languages, and stargazers through concurrent worker threads with automatic retry on failed requests. The resulting dataset then feeds an exploratory analysis notebook that surfaces trends across languages, audiences, and user attributes, turning raw API output into a dataset someone can actually draw conclusions from.</p>
@@ -453,7 +482,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">17</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">18</span><span class="pill">Data Pipeline</span></div>
       <h3>Northwind OLTP → OLAP Star Schema (PySpark SCD2)</h3>
       <div class="role">Data warehouse modeling + Slowly Changing Dimension implementation</div>
       <p class="summary">Redesigns the classic Northwind OLTP database into a proper star schema: a fact table grained at order/order-detail level with foreign keys to denormalized Employee, Customer, and Product dimensions, plus a Date dimension. MySQL procedures migrate the data from OLTP to OLAP, and PySpark implements a working Slowly Changing Dimension (Type 2) on the Employee dimension, validated against both an insert case and an update case to prove history is tracked correctly.</p>
@@ -463,7 +492,7 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
     </article>
 
     <article class="proj reveal" data-cat="data">
-      <div class="proj-head"><span class="proj-num">18</span><span class="pill">Data Pipeline</span></div>
+      <div class="proj-head"><span class="proj-num">19</span><span class="pill">Data Pipeline</span></div>
       <h3>Nested JSON Streaming: Kafka + PySpark</h3>
       <div class="role">Exam solution, structured streaming, schema flattening, data quality rules</div>
       <p class="summary">Reads nested Titanic-dataset JSON messages off a Dockerized Kafka topic, applies an explicit schema to work with the nested fields through PySpark&#x27;s API, then flattens everything to a single level. From there it drops duplicate rows, enforces that key columns are never null, removes fields that aren&#x27;t needed downstream, fixes numeric types, and writes the cleaned result out as line-delimited JSON.</p>
@@ -471,6 +500,27 @@ try{var th=localStorage.getItem('theme');if(th)document.documentElement.setAttri
       <div class="arch-label"><span>Architecture</span></div>
       <div class="diagram-wrap"><svg viewBox="0 0 1040 181" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" role="img"><defs><marker id="arp18" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="dg-arrow"/></marker></defs><text x="101.6" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">SOURCE</text><line x1="16.0" y1="34" x2="187.2" y2="34" class="dg-hline" stroke-width="1.5"/><text x="310.8" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">STREAM</text><line x1="225.2" y1="34" x2="396.4" y2="34" class="dg-hline" stroke-width="1.5"/><text x="520.0" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">PARSE</text><line x1="434.4" y1="34" x2="605.6" y2="34" class="dg-hline" stroke-width="1.5"/><text x="729.2" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">QUALITY RULES</text><line x1="643.6" y1="34" x2="814.8" y2="34" class="dg-hline" stroke-width="1.5"/><text x="938.4" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">OUTPUT</text><line x1="852.8" y1="34" x2="1024.0" y2="34" class="dg-hline" stroke-width="1.5"/><path d="M187.2,102.5 C205.7,102.5 205.7,102.5 224.2,102.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp18)"/><path d="M396.4,102.5 C414.9,102.5 414.9,102.5 433.4,102.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp18)"/><path d="M605.6,102.5 C624.1,102.5 624.1,102.5 642.6,102.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp18)"/><path d="M814.8,102.5 C833.3,102.5 833.3,102.5 851.8,102.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp18)"/><rect x="16.0" y="52.0" width="171.2" height="101" rx="10" class="nd-s" stroke-width="1.3"/><text x="101.6" y="98.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-s">titanic.csv</text><text x="101.6" y="117.5" text-anchor="middle" font-size="10.5" class="dg-sub">reshaped into nested JSON</text><rect x="225.2" y="52.0" width="171.2" height="101" rx="10" class="nd-c" stroke-width="1.3"/><text x="310.8" y="98.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">Kafka topic</text><text x="310.8" y="117.5" text-anchor="middle" font-size="10.5" class="dg-sub">titanic_topic (Docker)</text><rect x="434.4" y="52.0" width="171.2" height="101" rx="10" class="nd-c" stroke-width="1.3"/><text x="520.0" y="92.0" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">PySpark</text><text x="520.0" y="111.0" text-anchor="middle" font-size="10.5" class="dg-sub">apply explicit schema →</text><text x="520.0" y="124.0" text-anchor="middle" font-size="10.5" class="dg-sub">flatten nested columns</text><rect x="643.6" y="52.0" width="171.2" height="101" rx="10" class="nd-c" stroke-width="1.3"/><text x="729.2" y="79.0" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">Data cleaning</text><text x="729.2" y="98.0" text-anchor="middle" font-size="10.5" class="dg-sub">drop duplicates · enforce</text><text x="729.2" y="111.0" text-anchor="middle" font-size="10.5" class="dg-sub">not-null · drop unused</text><text x="729.2" y="124.0" text-anchor="middle" font-size="10.5" class="dg-sub">columns · fix types (Age,</text><text x="729.2" y="137.0" text-anchor="middle" font-size="10.5" class="dg-sub">Fare)</text><rect x="852.8" y="52.0" width="171.2" height="101" rx="10" class="nd-d" stroke-width="1.3"/><text x="938.4" y="98.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-d">JSON lines</text><text x="938.4" y="117.5" text-anchor="middle" font-size="10.5" class="dg-sub">via DataFrameWriter</text></svg></div>
     </article>
+
+    <article class="proj reveal" data-cat="ai">
+      <div class="proj-head"><span class="proj-num">20</span><span class="pill">AI &amp; Automation</span></div>
+      <h3>LangChain Navigator: RAG Documentation Assistant</h3>
+      <div class="role">Retrieval-Augmented Generation chatbot, LangChain, Pinecone, Tavily (based on Eden Marco's LangChain course project)</div>
+      <p class="summary">A documentation assistant, a slimmed-down take on chat.langchain.com, that answers questions about LangChain with cited sources. An ingestion pipeline crawls the docs with Tavily, chunks and embeds them, and indexes them in Pinecone. At question time the app retrieves the most relevant chunks, adds conversational memory so follow-up questions resolve correctly, and has an OpenAI GPT model write the answer inside a Streamlit chat interface.</p>
+      <div class="stack"><span>Python</span><span>LangChain</span><span>RAG</span><span>OpenAI GPT</span><span>Pinecone</span><span>Tavily</span><span>Streamlit</span></div>
+      <div class="arch-label"><span>Architecture</span></div>
+      <div class="diagram-wrap"><svg viewBox="0 0 1040 250" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" role="img"><defs><marker id="arp19" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="dg-arrow"/></marker></defs><text x="101.6" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">ASK</text><line x1="16" y1="34" x2="187.2" y2="34" class="dg-hline" stroke-width="1.5"/><text x="310.8" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">INTERFACE</text><line x1="225.2" y1="34" x2="396.4" y2="34" class="dg-hline" stroke-width="1.5"/><text x="520" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">RETRIEVE</text><line x1="434.4" y1="34" x2="605.6" y2="34" class="dg-hline" stroke-width="1.5"/><text x="729.2" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">GENERATE</text><line x1="643.6" y1="34" x2="814.8" y2="34" class="dg-hline" stroke-width="1.5"/><text x="938.4" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">ANSWER</text><line x1="852.8" y1="34" x2="1024" y2="34" class="dg-hline" stroke-width="1.5"/><path d="M187.2,89.5 L224.2,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp19)"/><path d="M396.4,89.5 L433.4,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp19)"/><path d="M605.6,89.5 L642.6,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp19)"/><path d="M814.8,89.5 L851.8,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp19)"/><path d="M520,178 L520,129" fill="none" class="dg-edge" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arp19)"/><rect x="16" y="52" width="171.2" height="75" rx="10" class="nd-s" stroke-width="1.3"/><text x="101.6" y="85.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-s">User</text><text x="101.6" y="104.5" text-anchor="middle" font-size="10.5" class="dg-sub">LangChain question</text><rect x="225.2" y="52" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="310.8" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">Streamlit chat</text><text x="310.8" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">conversational memory</text><text x="310.8" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">resolves follow-ups</text><rect x="434.4" y="52" width="171.2" height="75" rx="10" class="nd-d" stroke-width="1.3"/><text x="520" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-d">Pinecone</text><text x="520" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">similarity search for</text><text x="520" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">relevant doc chunks</text><rect x="643.6" y="52" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="729.2" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">OpenAI GPT</text><text x="729.2" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">LangChain chain: question</text><text x="729.2" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">+ context + history</text><rect x="852.8" y="52" width="171.2" height="75" rx="10" class="nd-o" stroke-width="1.3"/><text x="938.4" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-o">Cited answer</text><text x="938.4" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">grounded in the docs,</text><text x="938.4" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">with sources</text><rect x="225.2" y="178" width="380.4" height="58" rx="10" class="nd-a" stroke-width="1.3"/><text x="415.4" y="203" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-a">ingestion.py · offline</text><text x="415.4" y="222" text-anchor="middle" font-size="10.5" class="dg-sub">Tavily crawl → chunk → embed → index</text></svg></div>
+    </article>
+
+    <article class="proj reveal" data-cat="ai">
+      <div class="proj-head"><span class="proj-num">21</span><span class="pill">AI &amp; Automation</span></div>
+      <h3>Text-to-SQL &amp; SQL-to-Text Custom GPT</h3>
+      <div class="role">Natural-language analytics assistant on BigQuery</div>
+      <p class="summary">A custom GPT that takes a business question in plain English, such as &ldquo;how did sales trend over the last 6 months?&rdquo;, converts it into SQL, runs that query on BigQuery, and explains the result back in plain English. It lets non-technical teams get sales and analytics answers without writing SQL or waiting on an analyst.</p>
+      <div class="stack"><span>Custom GPT</span><span>Text-to-SQL</span><span>BigQuery</span><span>SQL</span><span>LLM</span></div>
+      <div class="arch-label"><span>Architecture</span></div>
+      <div class="diagram-wrap"><svg viewBox="0 0 1040 155" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" role="img"><defs><marker id="arp21" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="dg-arrow"/></marker></defs><text x="101.6" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">ASK</text><line x1="16" y1="34" x2="187.2" y2="34" class="dg-hline" stroke-width="1.5"/><text x="310.8" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">TEXT → SQL</text><line x1="225.2" y1="34" x2="396.4" y2="34" class="dg-hline" stroke-width="1.5"/><text x="520" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">EXECUTE</text><line x1="434.4" y1="34" x2="605.6" y2="34" class="dg-hline" stroke-width="1.5"/><text x="729.2" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">SQL → TEXT</text><line x1="643.6" y1="34" x2="814.8" y2="34" class="dg-hline" stroke-width="1.5"/><text x="938.4" y="24" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.2" class="dg-head">ANSWER</text><line x1="852.8" y1="34" x2="1024" y2="34" class="dg-hline" stroke-width="1.5"/><path d="M187.2,89.5 L224.2,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp21)"/><path d="M396.4,89.5 L433.4,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp21)"/><path d="M605.6,89.5 L642.6,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp21)"/><path d="M814.8,89.5 L851.8,89.5" fill="none" class="dg-edge" stroke-width="1.5" marker-end="url(#arp21)"/><rect x="16" y="52" width="171.2" height="75" rx="10" class="nd-s" stroke-width="1.3"/><text x="101.6" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-s">User question</text><text x="101.6" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">plain English, e.g. last</text><text x="101.6" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">6 months sales</text><rect x="225.2" y="52" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="310.8" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">Custom GPT</text><text x="310.8" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">generates BigQuery</text><text x="310.8" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">SQL from schema</text><rect x="434.4" y="52" width="171.2" height="75" rx="10" class="nd-d" stroke-width="1.3"/><text x="520" y="85.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-d">BigQuery</text><text x="520" y="104.5" text-anchor="middle" font-size="10.5" class="dg-sub">runs the query</text><rect x="643.6" y="52" width="171.2" height="75" rx="10" class="nd-c" stroke-width="1.3"/><text x="729.2" y="79" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-c">Custom GPT</text><text x="729.2" y="98" text-anchor="middle" font-size="10.5" class="dg-sub">turns result rows into</text><text x="729.2" y="111" text-anchor="middle" font-size="10.5" class="dg-sub">a summary</text><rect x="852.8" y="52" width="171.2" height="75" rx="10" class="nd-o" stroke-width="1.3"/><text x="938.4" y="85.5" text-anchor="middle" font-size="12.5" font-weight="700" class="nt-o">Plain-English answer</text><text x="938.4" y="104.5" text-anchor="middle" font-size="10.5" class="dg-sub">insight for the user</text></svg></div>
+    </article>
+
   </div>
 </section>
 
@@ -516,12 +566,28 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 // reveal
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.06});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// filter
-const chips=document.querySelectorAll('.chip'), cards=document.querySelectorAll('.proj');
-chips.forEach(c=>c.addEventListener('click',()=>{
-  chips.forEach(x=>x.classList.remove('active')); c.classList.add('active');
-  const f=c.dataset.filter;
-  cards.forEach(p=>p.style.display=(f==='all'||p.dataset.cat===f)?'':'none');
+// filters: type + technology (tech tags auto-detected from each card's text)
+const TECH={bigquery:/bigquery/i,aws:/\baws\b|\bs3\b|glue|athena|lambda/i,azure:/azure/i,snowflake:/snowflake/i};
+const cards=[...document.querySelectorAll('.proj')];
+cards.forEach(p=>{const t=p.textContent;p.dataset.tech=Object.keys(TECH).filter(k=>TECH[k].test(t)).join(' ')});
+let fCat='all',fTech='all';
+const countEl=document.getElementById('resultCount');
+cards.forEach((p,i)=>{if(!p.id)p.id='proj-'+(p.querySelector('.proj-num')?p.querySelector('.proj-num').textContent:i)});
+function applyFilters(){
+  const shown=[];
+  cards.forEach(p=>{
+    const ok=(fCat==='all'||p.dataset.cat===fCat)&&(fTech==='all'||p.dataset.tech.split(' ').includes(fTech));
+    p.style.display=ok?'':'none'; if(ok)shown.push(p);
+  });
+  countEl.innerHTML=(fCat==='all'&&fTech==='all')?'':'<span>Showing '+shown.length+' of '+cards.length+' projects:</span>'+shown.map(p=>'<a href="#'+p.id+'">'+p.querySelector('.proj-num').textContent+'. '+p.querySelector('h3').textContent+'</a>').join('');
+}
+document.querySelectorAll('.chip.tech').forEach(c=>{
+  const k=c.dataset.tech;
+  if(k!=='all')c.insertAdjacentHTML('beforeend',`<small>${cards.filter(p=>p.dataset.tech.split(' ').includes(k)).length}</small>`);
+  c.addEventListener('click',()=>{document.querySelectorAll('.chip.tech').forEach(x=>x.classList.remove('active'));c.classList.add('active');fTech=k;applyFilters()});
+});
+document.querySelectorAll('.chip[data-filter]').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip[data-filter]').forEach(x=>x.classList.remove('active'));c.classList.add('active');fCat=c.dataset.filter;applyFilters();
 }));
 // nav
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('open')));
@@ -534,4 +600,5 @@ addEventListener('scroll',()=>{
 </script>
 </body>
 </html>
+ 
  
